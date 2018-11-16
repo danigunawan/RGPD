@@ -19,7 +19,7 @@
   <div class= "form-group">
     <%= f.label :email, 'Courriel *' %><br>
     <%= f.email_field :email, class: "form-control", placeholder: "Entrer votre courriel", required: true %>
-    <small id = "required-help" style="color: red;" class="form-text">Les champs marqués d'une "*" sont obligatoires</small>
+    <small id = "required-help" style="color: red;" class="form-text">Les champs marqués d'un "*" sont obligatoires</small>
   </div>
 
   <%= f.label :phone, 'Numéro de téléphone portable' %><br>
@@ -39,8 +39,19 @@
   <%= f.text_field :zipcode, class: "form-control", placeholder: "Entrer votre code postal"%>
   </div>
   </div>
+  <hr/>
 
-  <div class="row">
+  <div class="form-check">
+    <%= fields_for :request do |builder| %>
+      <% Request.all.each do |r| %>
+        <%= builder.label :title %>
+        <%= builder.radio_button :title %>
+      <% end %>
+    <% end %>
+  </div>
+
+  <hr/>
+  <div class="mx-auto">
   <%= f.submit "Envoyer", class: "btn btn-primary align-self-center"%>
   </div>
 <% end %>
