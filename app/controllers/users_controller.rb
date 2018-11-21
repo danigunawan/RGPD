@@ -26,6 +26,9 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
 
+    if @user.request.nil? == true
+      flash[:notice] = "Veuillez préciser le type de la requête."
+    end
     respond_to do |format|
       if @user.save
         format.html { redirect_to @user, notice: 'User was successfully created.' }
@@ -69,6 +72,6 @@ class UsersController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def user_params
-      params.require(:user).permit(:name, :surname, :email, :phone, :address, :city, :zipcode)
+      params.require(:user).permit(:name, :surname, :email, :phone, :address, :city, :zipcode, :request)
     end
 end
