@@ -1,16 +1,19 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+    <title>Demande de droit d'accès</title>
+    <%= stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag  'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <h1>Welcome to example.com, <%= @user.name %></h1>
+    <h1>Votre demande de droit d'accès</h1>
     <p>
-    You have successfully signe up to example.com, your username is: <%= @user.name %><br/>
+    Bonjour, <%= @user.name + " " + @user.surname %> <br/>
     </p>
     <p>
-    To login to the site, just follow this link: <%= @url %>.
+    Votre demande de droit d'accès va être traitée par nos services dans un délai maximum de 30 jours.<%= @url %>.
     </p>
-    <p>Thanks for joining and have a great day!</p>
+    <p>Nous vous remercions pour votre patience.</p>
+    <a href="http://www.madparis.fr">Musée des Arts Décoratifs de Paris</a>
   </body>
 </html>
