@@ -1,4 +1,8 @@
 Rails.application.routes.draw do
-  resources :users
+  get 'confirmations/show'
+  get 'confirmation/show'
+  resources :users do
+    resources :confirmations
+  end
   root 'users#new'
 end
