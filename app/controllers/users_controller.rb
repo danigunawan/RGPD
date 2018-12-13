@@ -1,83 +1,94 @@
 class UsersController < ApplicationController
-  before_action :set_user, only: [:show, :edit, :update, :destroy, :confirmation]
+before_action :set_user, only: [:show, :edit, :update, :destroy, :confirmation]
 
-  # GET /users
-  # GET /users.json
-  def index
-    @users = User.all
+# GET /users
+# GET /users.json
+def index
+  @users = User.all
+end
+
+# GET /users/1
+# GET /users/1.json
+def show
+end
+
+# GET /users/new
+def new
+  @user = User.new
+end
+
+# GET /users/1/edit
+def edit
+end
+
+# POST /users
+# POST /users.json
+def create
+  @user = User.new(user_params)
+
+  if @user.request_id.nil? == true
+    #flash[:notice] = "Veuillez préciser le type de la requête."
   end
 
-  # GET /users/1
-  # GET /users/1.json
-  def show
-  end
-
-  # GET /users/new
-  def new
-    @user = User.new
-  end
-
-  # GET /users/1/edit
-  def edit
-  end
-
-  # POST /users
-  # POST /users.json
-  def create
-    @user = User.new(user_params)
-
-    if @user.request.nil? == true
-      flash[:notice] = "Veuillez préciser le type de la requête."
-    end
-    respond_to do |format|
-      if @user.save
+    if @user.save
 #        UserMailer.with(user: @user).welcome_email.deliver_later
-        format.html redirect_to user_confirmation_path(@user)
-        format.json { render :show, status: :created, location: @user }
+      case @user.request_id
+      when 1
+        redirect_to access_right_requests_path
+      when 2
+        redirect_to new_user_modifications_path(@user)
+      when 3
+        redirect_to limit_right_requests_path
+      when 4
+        redirect_to delete_right_requests_path
       else
-        format.html { render :new }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
+        "Error, unknown request_id."
       end
+    else
+      redirect_to new_user_path
+  end
+end
+
+
+# PATCH/PUT /users/1
+# PATCH/PUT /users/1.json
+def update
+  respond_to do |format|
+    if @user.update(user_params)
+      format.html { redirect_to @user, notice: 'User was successfully updated.' }
+      format.json { render :show, status: :ok, location: @user }
+    else
+      format.html { render :edit }
+      format.json { render json: @user.errors, status: :unprocessable_entity }
     end
   end
+end
 
-
-  # PATCH/PUT /users/1
-  # PATCH/PUT /users/1.json
-  def update
-    respond_to do |format|
-      if @user.update(user_params)
-        format.html { redirect_to @user, notice: 'User was successfully updated.' }
-        format.json { render :show, status: :ok, location: @user }
-      else
-        format.html { render :edit }
-        format.json { render json: @user.errors, status: :unprocessable_entity }
-      end
-    end
+# DELETE /users/1
+# DELETE /users/1.json
+def destroy
+  @user.destroy
+  respond_to do |format|
+    format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
+    format.json { head :no_content }
   end
+end
 
-  # DELETE /users/1
-  # DELETE /users/1.json
-  def destroy
-    @user.destroy
-    respond_to do |format|
-      format.html { redirect_to users_url, notice: 'User was successfully destroyed.' }
-      format.json { head :no_content }
-    end
-  end
+def confirmation
+  format.html { render :confirmation }
+end
 
-  def confirmation
-    format.html { render :confirmation }
-  end
+private
+# Use callbacks to share common setup or constraints between actions.
+def set_user
+  @user = User.find(params[:id])
+end
 
-  private
-  # Use callbacks to share common setup or constraints between actions.
-  def set_user
-    @user = User.find(params[:id])
-  end
-
-  # Never trust parameters from the scary internet, only allow the white list through.
-  def user_params
-    params.require(:user).permit(:name, :surname, :email, :phone, :address, :city, :zipcode, :request)
-  end
+# Never trust parameters from the scary internet, only allow the white list through.
+def user_params
+  params.require(:user).permit(:name, :surname, :email, :phone, :address,
+                        :city, :zipcode, :request_id,
+                        modifications_attributes: [ :name, :surname, :string,
+                          :email, :phone, :address, :city, :zipcode ])
+end
 end

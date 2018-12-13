@@ -1,0 +1,44 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @modification.name %>
+</p>
+
+<p>
+  <strong>Surname:</strong>
+  <%= @modification.surname %>
+</p>
+
+<p>
+  <strong>String:</strong>
+  <%= @modification.string %>
+</p>
+
+<p>
+  <strong>Email:</strong>
+  <%= @modification.email %>
+</p>
+
+<p>
+  <strong>Phone:</strong>
+  <%= @modification.phone %>
+</p>
+
+<p>
+  <strong>Address:</strong>
+  <%= @modification.address %>
+</p>
+
+<p>
+  <strong>City:</strong>
+  <%= @modification.city %>
+</p>
+
+<p>
+  <strong>Zipcode:</strong>
+  <%= @modification.zipcode %>
+</p>
+
+<%= link_to 'Edit', edit_modification_path(@modification) %> |
+<%= link_to 'Back', modifications_path %>

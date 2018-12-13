@@ -1,5 +1,5 @@
 class AddRequestsToUsers < ActiveRecord::Migration[5.2]
   def change
-    add_column :users, :request, :integer
+    add_reference :users, :request, foreign_key: true
   end
 end

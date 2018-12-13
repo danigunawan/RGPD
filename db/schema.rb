@@ -10,10 +10,30 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2018_11_21_105456) do
+ActiveRecord::Schema.define(version: 2018_12_13_144056) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
+
+  create_table "modifications", force: :cascade do |t|
+    t.string "name"
+    t.string "surname"
+    t.string "string"
+    t.string "email"
+    t.string "phone"
+    t.string "address"
+    t.string "city"
+    t.string "zipcode"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
+
+  create_table "requests", force: :cascade do |t|
+    t.string "title"
+    t.boolean "selected"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+  end
 
   create_table "unsubscriptions", force: :cascade do |t|
     t.string "kind"
@@ -32,9 +52,14 @@ ActiveRecord::Schema.define(version: 2018_11_21_105456) do
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.bigint "unsubscription_id"
-    t.integer "request"
+    t.bigint "request_id"
+    t.bigint "modification_id"
+    t.index ["modification_id"], name: "index_users_on_modification_id"
+    t.index ["request_id"], name: "index_users_on_request_id"
     t.index ["unsubscription_id"], name: "index_users_on_unsubscription_id"
   end
 
+  add_foreign_key "users", "modifications"
+  add_foreign_key "users", "requests"
   add_foreign_key "users", "unsubscriptions"
 end

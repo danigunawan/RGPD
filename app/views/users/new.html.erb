@@ -1,76 +1,94 @@
 <div id = "page-title">
-  <h1 class= "text-center">Données Personnelles</h1>
-  <h2 class= "text-center">Exercice de mes droits</h2>
+<h1 class= "text-center">Données Personnelles</h1>
+<h2 class= "text-center">Exercice de mes droits</h2>
 </div>
 
+<% if @user.errors.any? %>
+
+<% @user.errors.full_messages.each do |message| %>
+    <div class = "alert alert-danger alert-dismissible fade show"
+                                            id = "notice" role="alert">
+      Message: <%= message %>
+  <button type="button" class="close" data-dismiss="alert"
+                                            aria-label="Close">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<% end %>
+<% end %>
 
 <%= form_for @user do |f| %>
 
-  <div class = "row form-group">
-    <div class = "col">
-      <%= f.label :name, 'Prénom *' %><br>
-      <%= f.text_field :name, class: "form-control", placeholder: "Entrer votre prénom", required: true %>
-    </div>
-    <div class = "col">
-      <%= f.label :surname, 'Nom *' %><br>
-      <%= f.text_field :surname, class: "form-control", placeholder: "Entrer votre nom", required: true %>
-    </div>
-  </div>
+<div class = "row form-group">
+<div class = "col">
+  <%= f.label :name, 'Prénom *' %><br>
+  <%= f.text_field :name, class: "form-control",
+                placeholder: "Entrer votre prénom", required: true %>
+</div>
+<div class = "col">
+  <%= f.label :surname, 'Nom *' %><br>
+  <%= f.text_field :surname, class: "form-control",
+                          placeholder: "Entrer votre nom", required: true %>
+</div>
+</div>
 
-  <div class= "form-group">
-    <%= f.label :email, 'Courriel *' %><br>
-    <%= f.email_field :email, class: "form-control", placeholder: "Entrer votre courriel", required: true %>
-    <small id = "required-help" style="color: red;" class="form-text">Les champs marqués d'un "*" sont obligatoires</small>
-  </div>
+<div class= "form-group">
+<%= f.label :email, 'Courriel *' %><br>
+<%= f.email_field :email, class: "form-control",
+                    placeholder: "Entrer votre courriel", required: true %>
+<small id = "required-help" style="color: red;" class="form-text">
+                    Les champs marqués d'un "*" sont obligatoires</small>
+</div>
 
-  <%= f.label :phone, 'Numéro de téléphone portable' %><br>
-  <%= f.text_field :phone, class: "form-control", placeholder: "Entrer votre numéro de téléphone portable"%>
+<%= f.label :phone, 'Numéro de téléphone portable' %><br>
+<%= f.text_field :phone, class: "form-control",
+              placeholder: "Entrer votre numéro de téléphone portable"%>
 
-  <%= f.label :address, 'Adresse' %><br>
-  <%= f.text_field :address, class: "form-control", placeholder: "Entrer votre adresse"%>
+<%= f.label :address, 'Adresse' %><br>
+<%= f.text_field :address, class: "form-control",
+                                    placeholder: "Entrer votre adresse"%>
 
-  <div class = "row form-group">
-    <div class= "col">
-      <%= f.label :city, 'Ville' %><br>
-      <%= f.text_field :city, class: "form-control", placeholder: "Entrer votre ville"%>
-    </div>
+<div class = "row form-group">
+<div class= "col">
+  <%= f.label :city, 'Ville' %><br>
+  <%= f.text_field :city, class: "form-control",
+                                placeholder: "Entrer votre ville"%>
+</div>
 
-    <div class= "col">
-      <%= f.label :zipcode, 'Code Postal' %><br>
-      <%= f.text_field :zipcode, class: "form-control", placeholder: "Entrer votre code postal"%>
-    </div>
-  </div>
-  <hr/>
+<div class= "col">
+  <%= f.label :zipcode, 'Code Postal' %><br>
+  <%= f.text_field :zipcode, class: "form-control",
+                              placeholder: "Entrer votre code postal"%>
+</div>
+</div>
+<hr/>
 
-<% if flash[:notice] %>
-  <div class = "alert alert-danger alert-dismissible fade show" id = "notic    e" role="alert">
-    <%= flash[:notice] %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Clo    se">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-<% end %>
 
-  <div class="form-check">
-    <%= f.radio_button :request, '1', class:"form-check-input"%>
-    <%= f.label :request, "Exercer mon droit d'accès", class: "form-check-label"%><br />
-  </div>
-  <div class="form-check">
-    <%= f.radio_button :request, '2', class:"form-check-input"%>
-    <%= f.label :request, "Rectifier mes données dans vos bases", class: "form-check-label"%><br />
-  </div>
-  <div class="form-check">
-    <%= f.radio_button :request, '3', class:"form-check-input"%>
-    <%= f.label :request, "Limiter mes traitements", class: "form-check-label"%><br />
-  </div>
-  <div class="form-check">
-    <%= f.radio_button :request, '4', class:"form-check-input"%>
-    <%= f.label :request, "Effacer mes données personnelles", class: "form-check-label"%><br />
-  </div>
 
-  <hr/>
-  <div class="mx-auto">
-    <%= f.submit "Envoyer", class: "btn btn-primary align-self-center"%>
-  </div>
+<div class="form-check">
+<%= f.radio_button :request_id, '1', class:"form-check-input"%>
+<%= f.label :request_id, "Exercer mon droit d'accès",
+                                    class: "form-check-label"%><br />
+</div>
+<div class="form-check">
+<%= f.radio_button :request_id, '2', class:"form-check-input"%>
+<%= f.label :request_id, "Rectifier mes données dans vos bases",
+                                          class: "form-check-label"%><br />
+</div>
+<div class="form-check">
+<%= f.radio_button :request_id, '3', class:"form-check-input"%>
+<%= f.label :request_id, "Limiter mes traitements",
+                                          class: "form-check-label"%><br />
+</div>
+<div class="form-check">
+<%= f.radio_button :request_id, '4', class:"form-check-input"%>
+<%= f.label :request_id, "Effacer mes données personnelles",
+                class: "form-check-label"%><br />
+</div>
+
+<hr/>
+<div class="mx-auto">
+<%= f.submit "Envoyer", class: "btn btn-primary align-self-center"%>
+</div>
 <% end %>
 <%= link_to 'Back', users_path %>
