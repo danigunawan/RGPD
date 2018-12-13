@@ -11,8 +11,7 @@ Rails.application.routes.draw do
   end
 
   resources :users do
-    resources :confirmations
-    resource :modifications
+      resource :modifications
   end
   root 'users#new'
 end
