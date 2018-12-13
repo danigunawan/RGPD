@@ -5,5 +5,9 @@ class User < ApplicationRecord
   has_one :modification, dependent: :destroy
 
   accepts_nested_attributes_for :modification
-  validates :request_id, presence: { message: "Vous devez choisir un type de requête." }
+  validates :request_id,
+        presence: { message: "Vous devez choisir un type de requête." }
+        after_initialize do
+          self.modification ||= self.build_modification()
+        end
 end

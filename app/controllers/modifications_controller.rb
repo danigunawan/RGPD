@@ -25,14 +25,15 @@ class ModificationsController < ApplicationController
   # POST /modifications
   # POST /modifications.json
   def create
-    @modification = @user.modification.new(modification_params)
+    @user = User.find(params[:user_id])
+    @modification = Modification.new(modification_params)
     @user.modification = @modification
     respond_to do |format|
       if @modification.save
         format.html { redirect_to new_user_path, notice: 'Modification was successfully created.' }
         format.json { render :show, status: :created, location: @modification }
       else
-        format.html { redirect_to new_user_modification_path }
+        format.html { redirect_to new_user_modifications_path }
         format.json { render json: @modification.errors, status: :unprocessable_entity }
       end
     end
