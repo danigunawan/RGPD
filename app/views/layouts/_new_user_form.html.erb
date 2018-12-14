@@ -1,45 +1,65 @@
-<%= form_for @user do |f| %>
+<div class = "mandatory">
+  <h3 class="text-center">Informations obligatoires</h3>
+  <div class = "row form-group">
+    <div class = "col">
+      <%= f.label :name, 'Prénom' %><br>
+      <%= f.text_field :name, class: "form-control",
+      placeholder: "Entrer votre prénom", required: true %>
+    </div>
+    <div class = "col">
+      <%= f.label :surname, 'Nom' %><br>
+      <%= f.text_field :surname, class: "form-control",
+      placeholder: "Entrer votre nom", required: true %>
+    </div>
+  </div>
 
-<div class = "row form-group">
-<div class = "col">
-  <%= f.label :name, 'Prénom *' %><br>
-  <%= f.text_field :name, class: "form-control",
-                placeholder: "Entrer votre prénom", required: true %>
-</div>
-<div class = "col">
-  <%= f.label :surname, 'Nom *' %><br>
-  <%= f.text_field :surname, class: "form-control",
-                          placeholder: "Entrer votre nom", required: true %>
-</div>
-</div>
-
-<div class= "form-group">
-<%= f.label :email, 'Courriel *' %><br>
-<%= f.email_field :email, class: "form-control",
-                    placeholder: "Entrer votre courriel", required: true %>
-<small id = "required-help" style="color: red;" class="form-text">
-                    Les champs marqués d'un "*" sont obligatoires</small>
-</div>
-
-<%= f.label :phone, 'Numéro de téléphone portable' %><br>
-<%= f.text_field :phone, class: "form-control",
-              placeholder: "Entrer votre numéro de téléphone portable"%>
-
-<%= f.label :address, 'Adresse' %><br>
-<%= f.text_field :address, class: "form-control",
-                                    placeholder: "Entrer votre adresse"%>
-
-<div class = "row form-group">
-<div class= "col">
-  <%= f.label :city, 'Ville' %><br>
-  <%= f.text_field :city, class: "form-control",
-                                placeholder: "Entrer votre ville"%>
+  <div class= "form-group">
+    <%= f.label :email, 'Courriel' %>
+    <%= f.email_field :email, class: "form-control",
+    placeholder: "Entrer votre courriel", required: true %>
+  </div>
 </div>
 
-<div class= "col">
-  <%= f.label :zipcode, 'Code Postal' %><br>
-  <%= f.text_field :zipcode, class: "form-control",
-                              placeholder: "Entrer votre code postal"%>
-</div>
+<div class = "facultative">
+  <h3 class="text-center">Informations facultatives</h3>
+  <%= f.label :phone, 'Numéro de téléphone portable' %><br>
+  <%= f.text_field :phone, class: "form-control",
+  placeholder: "Entrer votre numéro de téléphone portable"%>
+
+  <%= f.label :address, 'Adresse' %><br>
+  <%= f.text_field :address, class: "form-control",
+  placeholder: "Entrer votre adresse"%>
+
+  <div class = "row form-group">
+    <div class= "col">
+      <%= f.label :city, 'Ville' %><br>
+      <%= f.text_field :city, class: "form-control",
+      placeholder: "Entrer votre ville"%>
+    </div>
+
+    <div class= "col">
+      <%= f.label :zipcode, 'Code Postal' %><br>
+      <%= f.text_field :zipcode, class: "form-control",
+      placeholder: "Entrer votre code postal"%>
+    </div>
+  </div>
 </div>
 <hr/>
+
+<% if f.object.has_attribute? :request_id %>
+<div class="radio">
+
+<% Request.all.each do |request| %>
+  <div class="form-check">
+    <%= f.radio_button :request_id, request.id, class:"form-check-input"%>
+    <%= f.label :request_id, request.title,
+    class: "form-check-label"%><br />
+  </div>
+<% end %>
+</div>
+<hr/>
+<% end %>
+
+<div class="row">
+  <%= f.submit "Envoyer", class: "btn-lg btn-primary center submit"%>
+</div>

@@ -1,8 +1,24 @@
 /* page related */
 #page-title {
-	padding: 50px;
+	padding: 10px;
 }
 
 .center {
-	text-align: center;
+	margin:auto;
+}
+.submit{
+	margin-bottom: 30px;
+}
+
+.mandatory, .facultative, .radio, .former-data, .informative {
+	padding: 10px;
+	border: 1px solid black;
+	border-radius: 20px;
+	margin-bottom: 20px;
+	background-color: white;
+	box-shadow: 1px 1px 12px #555;
+}
+
+body {
+	background-color: #e9ecef !important;
 }
