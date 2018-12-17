@@ -1,1 +1,10 @@
-blublu
+<% @user = User.find(params[:user_id]) %>
+<%= form_for @user, method: :PATCH do |f| %>
+<%= f.fields_for :choices do |builder|%>
+
+<%= builder.check_box :completed %>
+<%= builder.label builder.object.unsubscription.kind %><br />
+
+<%end %>
+<%= f.submit "envoyer"%>
+<%end %>

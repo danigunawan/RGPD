@@ -10,6 +10,7 @@ Rails.application.routes.draw do
     end
   end
 
+  resources :unsubscriptions
   resources :users do
       resource :modifications
   end

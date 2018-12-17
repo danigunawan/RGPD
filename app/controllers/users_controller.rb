@@ -38,7 +38,7 @@ def create
       when 2
         redirect_to new_user_modifications_path(@user)
       when 3
-        redirect_to limit_right_requests_path
+        redirect_to  limit_right_requests_path(user_id: @user.id)
       when 4
         redirect_to delete_right_requests_path
       else
@@ -74,9 +74,6 @@ def destroy
   end
 end
 
-def confirmation
-  format.html { render :confirmation }
-end
 
 private
 # Use callbacks to share common setup or constraints between actions.
@@ -86,9 +83,10 @@ end
 
 # Never trust parameters from the scary internet, only allow the white list through.
 def user_params
-  params.require(:user).permit(:name, :surname, :email, :phone, :address,
+  params.require(:user).permit( :name, :surname, :email, :phone, :address,
                         :city, :zipcode, :request_id,
                         modifications_attributes: [ :name, :surname, :string,
-                          :email, :phone, :address, :city, :zipcode ])
+                          :email, :phone, :address, :city, :zipcode ],
+                        choices_attributes: [:id, :completed] )
 end
 end
