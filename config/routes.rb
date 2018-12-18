@@ -7,6 +7,7 @@ Rails.application.routes.draw do
       get 'edit_right'
       get 'limit_right'
       get 'delete_right'
+      get 'limit_right_confirmation'
     end
   end
 

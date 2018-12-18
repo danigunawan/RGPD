@@ -28,15 +28,13 @@ class ModificationsController < ApplicationController
     @user = User.find(params[:user_id])
     @modification = Modification.new(modification_params)
     @user.modification = @modification
-    respond_to do |format|
       if @modification.save
-        format.html { redirect_to new_user_path, notice: 'Modification was successfully created.' }
-        format.json { render :show, status: :created, location: @modification }
+        redirect_to edit_right_requests_path, notice: 'Modification was successfully created.'
+        #MAIL THE DPO
+        #MAIL THE User
       else
-        format.html { redirect_to new_user_modifications_path }
-        format.json { render json: @modification.errors, status: :unprocessable_entity }
+        redirect_to new_user_modifications_path
       end
-    end
   end
 
   # PATCH/PUT /modifications/1

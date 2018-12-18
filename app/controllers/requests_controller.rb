@@ -19,6 +19,11 @@ class RequestsController < ApplicationController
   def limit_right
   end
 
+  def limit_right_confirmation
+    # MAIL THE DPO
+    # MAIL THE USER
+  end
+
   def delete_right
   end
 

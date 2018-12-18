@@ -35,12 +35,18 @@ def create
       case @user.request_id
       when 1
         redirect_to access_right_requests_path
+        #MAIL THE DPO
+        #MAIL THE USER
       when 2
         redirect_to new_user_modifications_path(@user)
+        #mail sent through modifications_controller
       when 3
         redirect_to  limit_right_requests_path(user_id: @user.id)
+        #Mail sent through requests_controller
       when 4
         redirect_to delete_right_requests_path
+        #MAIL THE DPO
+        #MAIL THE USER
       else
         "Error, unknown request_id."
       end
@@ -54,8 +60,9 @@ end
 # PATCH/PUT /users/1.json
 def update
       if @user.update(user_params)
-      format.html { redirect_to @user, notice: 'User was successfully updated.' }
-      format.json { render :show, status: :ok, location: @user }
+        # In case of Request #3 (unsubscriptions)
+        # redirect_to confirmation for this request.
+      redirect_to limit_right_confirmation_requests_path
     else
       redirect_to limit_right_requests_path(user_id: @user.id),
                         notice: 'Erreur'
