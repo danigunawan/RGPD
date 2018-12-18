@@ -1,5 +1,7 @@
 class RequestsController < ApplicationController
   before_action :set_request, only: [:show, :edit, :update, :destroy]
+  skip_before_action :login_required,
+    only: [:access_right, :edit_right, :limit_right_confirmation, :delete_right, :limit_right]
 
   # GET /requests
   # GET /requests.json

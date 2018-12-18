@@ -1,6 +1,6 @@
 class UsersController < ApplicationController
 before_action :set_user, only: [:show, :edit, :update, :destroy, :confirmation]
-
+skip_before_action :login_required, only: [:new, :create, :update]
 # GET /users
 # GET /users.json
 def index
@@ -59,7 +59,7 @@ end
 # PATCH/PUT /users/1
 # PATCH/PUT /users/1.json
 def update
-      if @user.update(user_params)
+      if @user.update(user_updatable_params)
         # In case of Request #3 (unsubscriptions)
         # redirect_to confirmation for this request.
       redirect_to limit_right_confirmation_requests_path
@@ -93,5 +93,10 @@ def user_params
                         modifications_attributes: [ :name, :surname, :string,
                           :email, :phone, :address, :city, :zipcode ],
                         choices_attributes: [:id, :completed] )
+end
+
+def user_updatable_params
+  params.require(:user).permit( modifications_attributes: [ :name, :surname, :string,
+    :email, :phone, :address, :city, :zipcode ], choices_attributes: [:id, :completed] )
 end
 end

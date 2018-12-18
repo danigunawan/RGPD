@@ -1,5 +1,7 @@
 class ModificationsController < ApplicationController
   before_action :set_modification, only: [:show, :edit, :update, :destroy]
+  skip_before_action :login_required, only: [:new, :create]
+
 
   # GET /modifications
   # GET /modifications.json

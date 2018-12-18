@@ -1,5 +1,6 @@
 class OfficersController < ApplicationController
   before_action :set_officer, only: [:show, :edit, :update, :destroy]
+  skip_before_action :login_required, only: [:new, :create]
 
   # GET /officers
   # GET /officers.json
