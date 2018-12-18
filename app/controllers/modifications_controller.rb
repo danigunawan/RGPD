@@ -29,7 +29,7 @@ class ModificationsController < ApplicationController
     @modification = Modification.new(modification_params)
     @user.modification = @modification
       if @modification.save
-        redirect_to edit_right_requests_path, notice: 'Modification was successfully created.'
+        redirect_to edit_right_requests_path
         #MAIL THE DPO
         #MAIL THE User
       else

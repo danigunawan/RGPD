@@ -1,35 +1,35 @@
 <% @user = User.find(params[:user_id]) %>
 
 <div class="row">
-  <h2 style="padding: 30px;" class="text-center mx-auto">Demande de limitations de traitement des données</h2>
+  <h2 class="mx-auto page-title">Demande de limitations de traitement des données</h2>
 </div>
+
 <div class="mx-auto" style="font-size: 1em;">
+  <div class="row">
+    <div class="informative mx-auto col-md-8">
 
-<div class="row">
-  <div class="informative mx-auto col-md-8">
+      <%= form_for @user, method: :PATCH do |f| %>
 
-<%= form_for @user, method: :PATCH do |f| %>
+      <%= f.fields_for :choices do |builder|%>
 
-<%= f.fields_for :choices do |builder|%>
+      <div class="form-check">
+        <%= builder.check_box :completed, class:"form-check-input" %>
+        <%= builder.label builder.object.unsubscription.kind,
+        class: "form-check-label" %><br />
+      </div>
 
-<div class="form-check">
-  <%= builder.check_box :completed, class:"form-check-input" %>
-  <%= builder.label builder.object.unsubscription.kind,
-                    class: "form-check-label" %><br />
-</div>
+      <%end %>
+    </div>
 
-<%end %>
-</div>
+  </div>
+  <div class="row">
+    <%= f.submit "Valider", class: "btn-lg btn-primary mx-auto submit"%>
 
-</div>
-<div class="row">
-  <%= f.submit "Valider", class: "btn-lg btn-primary mx-auto submit"%>
-
-</div>
-<%end %>
+  </div>
+  <%end %>
 
 </div>
 
 
 <%= link_to "Revenir au formulaire", new_user_path, class:"btn btn-primary",
-                      style:"margin: 30px;" %>
+style:"margin: 30px;" %>

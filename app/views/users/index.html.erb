@@ -1,39 +1,47 @@
-<p id="notice"><%= notice %></p>
 
-<h1>Users</h1>
+<div class = "row">
+<h1 class="mx-auto page-title">Requêtes</h1>
+</div>
+<%= render partial: "layouts/flash_notice" %>
 
-<table>
-  <thead>
-    <tr>
-      <th>Name</th>
-      <th>Surname</th>
-      <th>Email</th>
-      <th>Phone</th>
-      <th>Address</th>
-      <th>City</th>
-      <th>Zipcode</th>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
     <% @users.each do |user| %>
-      <tr>
-        <td><%= user.name %></td>
-        <td><%= user.surname %></td>
-        <td><%= user.email %></td>
-        <td><%= user.phone %></td>
-        <td><%= user.address %></td>
-        <td><%= user.city %></td>
-        <td><%= user.zipcode %></td>
-        <td><%= link_to 'Show', user %></td>
-        <td><%= link_to 'Edit', edit_user_path(user) %></td>
-        <td><%= link_to 'Destroy', user, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
+    <div class = "informative user-bubble">
+      <div class="row">
+        <div class="col">
+          <span class="attribute_title">Prénom:</span>   <%= user.name %>
+        </div>
+        <div class="col">
+          <span class="attribute_title">Nom:</span>   <%= user.surname %>
+        </div>
+        </div>
+        <div class="row">
+          <div class="col">
+              <span class="attribute_title">Courriel:</span>   <%= user.email %>
+          </div>
+          </div>
+          <div class = "row">
+          <div class="col">
+            <span class="attribute_title">Téléphone:</span>   <%= user.phone %>
+          </div>
+        <div class="col">
+          <span class="attribute_title">Adresse:</span>   <%= user.address %>
+        </div>
+        </div>
+        <div class = "row">
+        <div class="col">
+          <span class="attribute_title">Ville:</span>   <%= user.city %>
+        </div>
+        <div class="col">
+          <span class="attribute_title">Code postal:</span>   <%= user.zipcode %>
+        </div>
+        </div>
+<div class = "row user_methods">
+        <%= link_to 'Voir', user, class:"btn btn-primary mr-auto" %>
+        <%= link_to 'Supprimer', user, method: :delete, class:"btn btn-danger ml-auto",
+                              data: { confirm: 'Êtes-vous sûr?' } %>
+</div>
+      </div>
     <% end %>
-  </tbody>
-</table>
-
 <br>
 
 <%= link_to 'New User', new_user_path %>

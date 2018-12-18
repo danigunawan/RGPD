@@ -3,19 +3,8 @@
   <h2 class= "text-center">Exercice de mes droits</h2>
 </div>
 
-<% if @user.errors.any? %>
+<%= render partial: "layouts/flash_notice" %>
 
-<% @user.errors.full_messages.each do |message| %>
-<div class = "alert alert-danger alert-dismissible fade show"
-id = "notice" role="alert">
-Message: <%= message %>
-<button type="button" class="close" data-dismiss="alert"
-aria-label="Close">
-<span aria-hidden="true">&times;</span>
-</button>
-</div>
-<% end %>
-<% end %>
 <hr/>
 
 <%= form_for @user do |f| %>

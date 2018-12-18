@@ -1,4 +1,5 @@
 <% @cur_user = User.find(params[:user_id]) %>
+<%= render "layouts/flash_notice" %>
 
 <h3 class="text-center" style="padding: 20px 0px 30px 0px;">Anciennes données</h3>
 <%= form_for @cur_user do |f| %>
