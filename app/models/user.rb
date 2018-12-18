@@ -11,17 +11,17 @@ class User < ApplicationRecord
 
 
   validates :request_id,
-        presence: { message: "Vous devez choisir un type de requête." }
-
-        def assign_unsub
-          Unsubscription.all.each do |unsub|
-            if !self.unsubscriptions.exists?(unsub.id)
-          self.unsubscriptions << unsub
-        end
+  presence: { message: "Vous devez choisir un type de requête." }
+  
+  def assign_unsub
+    Unsubscription.all.each do |unsub|
+      if !self.unsubscriptions.exists?(unsub.id)
+        self.unsubscriptions << unsub
       end
-        end
+    end
+  end
 
-        def destroy_unsub
-          self.unsubscriptions.destroy_all
-        end
+  def destroy_unsub
+    self.unsubscriptions.destroy_all
+  end
 end

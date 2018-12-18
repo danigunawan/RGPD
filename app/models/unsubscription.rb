@@ -7,8 +7,12 @@ class Unsubscription < ApplicationRecord
   before_destroy :destroy_users
 
 
-    def assign_users
-    self.users << User.all
+  def assign_users
+    User.all.each do |user|
+      if !self.users.exists?(user.id)
+        self.users << user
+      end
+    end
   end
 
   def destroy_users

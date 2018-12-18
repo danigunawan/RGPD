@@ -53,14 +53,12 @@ end
 # PATCH/PUT /users/1
 # PATCH/PUT /users/1.json
 def update
-  respond_to do |format|
-    if @user.update(user_params)
+      if @user.update(user_params)
       format.html { redirect_to @user, notice: 'User was successfully updated.' }
       format.json { render :show, status: :ok, location: @user }
     else
-      format.html { render :edit }
-      format.json { render json: @user.errors, status: :unprocessable_entity }
-    end
+      redirect_to limit_right_requests_path(user_id: @user.id),
+                        notice: 'Erreur'
   end
 end
 

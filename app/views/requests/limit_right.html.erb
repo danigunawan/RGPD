@@ -1,10 +1,27 @@
 <% @user = User.find(params[:user_id]) %>
+
+<div class="row">
+  <h2 style="padding: 30px;" class="text-center">Demande de limitations de traitement des données</h2>
+</div>
+<div class="mx-auto" style="font-size: 1em;">
+
+<div class="row informative">
 <%= form_for @user, method: :PATCH do |f| %>
 <%= f.fields_for :choices do |builder|%>
 
-<%= builder.check_box :completed %>
-<%= builder.label builder.object.unsubscription.kind %><br />
+<div class="form-check">
+  <%= builder.check_box :completed, class:"form-check-input" %>
+  <%= builder.label builder.object.unsubscription.kind,
+                    class: "form-check-label" %><br />
+</div>
+
 
 <%end %>
-<%= f.submit "envoyer"%>
+</div>
+<%= f.submit "Valider", class: "btn-lg btn-primary center submit"%>
 <%end %>
+
+</div>
+
+
+<%= link_to "Revenir au formulaire", new_user_path, class:"btn btn-primary" %>
