@@ -10,33 +10,45 @@
       </ul>
     </div>
   <% end %>
-
-  <div class="field">
-    <%= form.label :firstname %>
-    <%= form.text_field :firstname %>
+<div class="informative">
+<div class="row">
+  <div class="col">
+    <%= form.label :firstname, "Prénom" %>
+    <%= form.text_field :firstname, class: "form-control", required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :lastname %>
-    <%= form.text_field :lastname %>
+  <div class="col">
+    <%= form.label :lastname, "Nom de famille" %>
+    <%= form.text_field :lastname, class: "form-control", required: true %>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <%= form.label :email, "Courriel" %>
+    <%= form.text_field :email, class: "form-control", required: true %>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <%= form.label :password, "Mot de passe" %>
+    <%= form.password_field :password, class: "form-control", required: true %>
   </div>
 
-  <div class="field">
-    <%= form.label :email %>
-    <%= form.text_field :email %>
+  <div class="col">
+    <%= form.label :password_confirmation, "Confirmation de mot de passe"%>
+    <%= form.password_field :password_confirmation, class: "form-control", required: true %>
+  </div>
+</div>
+<div class="row">
+  <div class="col">
+    <%= label_tag :code, "Code unique" %>
+    <%= text_field_tag :code, nil, class:"form-control", required: true  %>
+  </div>
+</div>
+</div>
+<hr/>
+  <div class="row">
+    <%= form.submit "Valider", class:"submit btn-lg btn-primary mx-auto"%>
   </div>
 
-  <div class="field">
-    <%= form.label :password %>
-    <%= form.password_field :password %>
-  </div>
-
-  <div class="field">
-    <%= form.label :password_confirmation %>
-    <%= form.password_field :password_confirmation %>
-  </div>
-
-  <div class="actions">
-    <%= form.submit %>
-  </div>
 <% end %>

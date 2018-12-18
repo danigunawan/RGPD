@@ -26,16 +26,19 @@ class OfficersController < ApplicationController
   # POST /officers.json
   def create
     @officer = Officer.new(officer_params)
-
-    respond_to do |format|
-      if @officer.save
-        format.html { redirect_to @officer, notice: 'Officer was successfully created.' }
-        format.json { render :show, status: :created, location: @officer }
+      if Token.find_by_secret(params[:code]) && @officer.save
+        session[:officer_id] = @officer.id
+        Token.find_by_secret(params[:code]).destroy
+       redirect_to users_path
+       #Mail to confirm account creation
       else
-        format.html { render :new }
-        format.json { render json: @officer.errors, status: :unprocessable_entity }
+        if ! Token.find_by_secret(params[:code])
+          flash[:notice] = "Mauvais code."
+        else
+          flash[:notice] = "Erreur à l'enregistrement."
+        end
+        redirect_to new_officer_path
       end
-    end
   end
 
   # PATCH/PUT /officers/1
