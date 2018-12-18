@@ -1,11 +1,15 @@
 
 <div class = "row">
-<h1 class="mx-auto page-title">Requêtes</h1>
+<h1 class="mx-auto page-title">Utilisateurs</h1>
 </div>
-<%= render partial: "layouts/flash_notice" %>
+<% if @users.empty? %>
+<% flash[:notice] = "Aucun utilisateur avec ce nom de famille n'a été trouvé." %>
+<% end %>
 
+<%= render partial: "layouts/side_nav" %>
+<%= render partial: "layouts/flash_notice" %>
     <% @users.each do |user| %>
-    <div class = "informative user-bubble">
+    <div class = "informative user-bubble  mx-auto">
       <div class="row">
         <div class="col">
           <span class="attribute_title">Prénom:</span>   <%= user.name %>
@@ -35,13 +39,11 @@
           <span class="attribute_title">Code postal:</span>   <%= user.zipcode %>
         </div>
         </div>
-<div class = "row user_methods">
-        <%= link_to 'Voir', user, class:"btn btn-primary mr-auto" %>
-        <%= link_to 'Supprimer', user, method: :delete, class:"btn btn-danger ml-auto",
-                              data: { confirm: 'Êtes-vous sûr?' } %>
+<div class = "row user_actions">
+        <%= link_to "<i class='fas fa-eye'></i>".html_safe, user, class:"btn btn-primary mr-auto" %>
+        <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, user, method: :delete, class:"btn btn-danger ml-auto",
+                              data: { confirm: 'Êtes-vous sûr de supprimer cette demande? Cette action est irréversible.' } %>
 </div>
       </div>
     <% end %>
 <br>
-
-<%= link_to 'New User', new_user_path %>

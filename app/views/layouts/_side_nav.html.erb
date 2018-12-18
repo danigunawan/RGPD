@@ -1,0 +1,25 @@
+<!-- Side navigation -->
+<div class="sidenav">
+  <% if current_page?(controller: 'users', action:'index')%>
+
+  <%= form_tag(users_path, method: :get, class: "form-inline") do %>
+<div class = "row">
+  <div class="col-7">
+    <%= text_field_tag :term, params[:term],
+     placeholder: "Nom", class: "mr-sm-2 form-control", id:"nav-search" %>
+  </div>
+  <div class="col-5">
+       <button type="submit" class="btn btn-search" >
+            <span class='fas fa-search'></span>
+      </button>
+      </div>
+      </div>
+  <% end %>
+  <% end %>
+  <%= link_to "Utilisateurs", users_path %>
+  <%= link_to "Requêtes", requests_path  %>
+  <%= link_to "Traitements", unsubscriptions_path  %>
+  <hr/>
+  <span >Bienvenue <%= current_officer.firstname%>
+  <%= link_to "Se déconnecter", logout_path, { id: "logout_link" } %></span>
+</div>

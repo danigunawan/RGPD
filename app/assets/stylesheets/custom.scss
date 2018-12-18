@@ -3,19 +3,103 @@
 	padding: 30px;
 }
 
-.user-bubble{
-	margin-bottom: 50px !important;
-	&:btn {
-		margin: 10px;
+/* Sidenav */
+
+/* The sidebar menu */
+$sidebar-width: 200px;
+.sidenav {
+
+  height: auto; /* Full-height: remove this if you want "auto" height */
+  width: $sidebar-width; /* Set the width of the sidebar */
+  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+  z-index: 1; /* Stay on top */
+  top: 10%; /* Stay at the top */
+  left: 0;
+  background-color: #fff; /* Black */
+	border: 1px solid black;
+  overflow-x: hidden; /* Disable horizontal scroll */
+  padding: 10px;
+	border-radius: 10px;
+	margin-left: 20px;
+
+}
+/*The sidebar search */
+#nav-search {
+	margin-left: 10%;
+	width: $sidebar-width * 0.5;
+}
+#logout_link
+{
+	font-size: 0.7em;
+	color: #007bff;
+	&:hover {
+		color: #0062cc;
 	}
 }
+/* The sidenav search button */
+.btn-search {
+	background-color: black;
+	color: white;
+	border-color: white;
+	&:hover {
+		background-color: white;
+		color: black;
+		border-color: black;
+	}
+}
+
+/* The navigation menu links */
+.sidenav a {
+	background-color: #f8f9fa;
+  padding: 6px 8px 6px 16px;
+  text-decoration: none;
+  font-size: 25px;
+  color: #818181;
+  display: block;
+}
+
+/* When you mouse over the navigation links, change their color */
+.sidenav a:hover {
+  color: #000;
+	text-decoration: none;
+}
+
+/* Style page content */
+.main {
+  margin-left: $sidebar-width; /* Same as the width of the sidebar */
+  padding: 0px 10px;
+}
+
+/* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
+@media screen and (max-height: 450px) {
+  .sidenav {padding-top: 15px;}
+  .sidenav a {font-size: 18px;}
+}
+
+
+
 .center {
 	margin:auto;
 }
+
+/* General form styling */
+
+/* form submit button style */
 .submit{
 	margin-bottom: 30px;
 }
 
+
+
+/* App styling */
+body {
+	background-color: #e9ecef !important;
+}
+
+.user_actions {
+	padding: 10px 20px 0px 20px;
+}
+/* sweet grey bubbles read-friendly */
 .mandatory, .facultative, .radio, .former-data, .informative {
 	padding: 10px;
 	border: 1px solid black;
@@ -24,14 +108,16 @@
 	background-color: white;
 	box-shadow: 1px 1px 12px #555;
 }
-.attribute_title {
-	text-decoration: underline;
+.user-bubble{
+	margin-bottom: 50px !important;
+	font-size: 1.3em;
 	font-weight: bold;
-}
-body {
-	background-color: #e9ecef !important;
+	&:btn {
+		margin: 10px;
+		}
 }
 
-.user_methods {
-	padding: 10px 20px 0px 20px;
+.attribute_title {
+	text-decoration: underline;
+	font-weight: normal;
 }
