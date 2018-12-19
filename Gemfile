@@ -3,6 +3,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.5.1'
 
+
+# Use Recaptcha for captcha verficiation
+gem "recaptcha"
 # Use figaro to store sensitive info like credentials in a yaml file
 gem 'figaro'
 # Use ActiveModel has_secure_password

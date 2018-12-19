@@ -3,6 +3,8 @@
 	padding: 30px;
 }
 
+
+
 /* Sidenav */
 
 /* The sidebar menu */
@@ -90,7 +92,10 @@ $sidebar-width: 200px;
 	margin-bottom: 30px;
 }
 
-
+/* form recaptcha */
+.rc-anchor {
+		@extend .mx-auto
+}
 
 /* App styling */
 body {

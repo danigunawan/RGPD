@@ -30,7 +30,7 @@ def create
     #flash[:notice] = "Veuillez préciser le type de la requête."
   end
 
-    if @user.save
+    if verify_recaptcha(model: @user) && @user.save
 #        UserMailer.with(user: @user).welcome_email.deliver_later
       case @user.request_id
       when 1
@@ -51,6 +51,9 @@ def create
         flash[:notice] = "Erreur, id de requête inconnu"
       end
     else
+      if !verify_recaptcha(model: @user)
+        flash.now[:notice]= "Captcha invalide!"
+      end
       redirect_to new_user_path
   end
 end

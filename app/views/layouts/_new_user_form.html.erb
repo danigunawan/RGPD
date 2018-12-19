@@ -55,10 +55,16 @@
     <%= f.label :request_id, request.title,
     class: "form-check-label"%><br />
   </div>
+  <% end %>
+
 <% end %>
 </div>
 <hr/>
-<% end %>
+
+  <div class="row">
+    <div class="g-recaptcha mx-auto" data-sitekey="6LdFUoMUAAAAABKpmO3W8AQh71hunGY6FkOnLR2K"></div>
+  </div>
+  <hr />
 
 <div class="row">
   <%= f.submit "Envoyer", class: "btn-lg btn-primary center submit"%>

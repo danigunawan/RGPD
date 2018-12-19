@@ -82,16 +82,16 @@ ActiveRecord::Schema.define(version: 2018_12_18_210826) do
     t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "unsubscription_id"
     t.bigint "request_id"
+    t.bigint "modification_id"
+    t.index ["modification_id"], name: "index_users_on_modification_id"
     t.index ["request_id"], name: "index_users_on_request_id"
-    t.index ["unsubscription_id"], name: "index_users_on_unsubscription_id"
   end
 
   add_foreign_key "choices", "unsubscriptions"
   add_foreign_key "choices", "users"
   add_foreign_key "modifications", "users"
   add_foreign_key "unsubscriptions", "users"
+  add_foreign_key "users", "modifications"
   add_foreign_key "users", "requests"
-  add_foreign_key "users", "unsubscriptions"
 end
