@@ -12,12 +12,11 @@
 
       <%= f.fields_for :choices do |builder|%>
 
-      <div class="form-check">
+      <div class="form-check checkbox-group required">
         <%= builder.check_box :completed, class:"form-check-input" %>
         <%= builder.label builder.object.unsubscription.kind,
         class: "form-check-label" %><br />
       </div>
-
       <%end %>
     </div>
 
@@ -33,3 +32,7 @@
 
 <%= link_to "Revenir au formulaire", new_user_path, class:"btn btn-primary",
 style:"margin: 30px;" %>
+<script> $('div.checkbox-group.required :checkbox:checked').length > 0
+</<script>
+
+</script>

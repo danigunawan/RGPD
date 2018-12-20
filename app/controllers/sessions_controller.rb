@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
       session[:officer_id] = officer.id
       redirect_to users_path, notice: "Bienvenue!"
     else
-      flash.now[:alert] = "Courriel ou mot de passe invalide."
+      flash.now[:danger] = "Courriel ou mot de passe invalide."
       render "new"
     end
   end

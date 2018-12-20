@@ -92,10 +92,6 @@ $sidebar-width: 200px;
 	margin-bottom: 30px;
 }
 
-/* form recaptcha */
-.rc-anchor {
-		@extend .mx-auto
-}
 
 /* App styling */
 body {
@@ -106,13 +102,19 @@ body {
 	padding: 10px 20px 0px 20px;
 }
 /* sweet grey bubbles read-friendly */
-.mandatory, .facultative, .radio, .former-data, .informative {
+.mandatory, .facultative, .radio, .former-data, .informative, #captcha {
 	padding: 10px;
 	border: 1px solid black;
 	border-radius: 20px;
 	margin-bottom: 20px;
 	background-color: white;
 	box-shadow: 1px 1px 12px #555;
+}
+#captcha {
+	padding: 0px;
+	padding-right: -1px;
+	border-radius: 5px;
+
 }
 .user-bubble{
 	margin-bottom: 50px !important;

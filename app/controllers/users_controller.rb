@@ -48,11 +48,11 @@ def create
         #MAIL THE DPO
         #MAIL THE USER
       else
-        flash[:notice] = "Erreur, id de requête inconnu"
+        flash[:danger] = "Erreur, id de requête inconnu"
       end
     else
       if !verify_recaptcha(model: @user)
-        flash.now[:notice]= "Captcha invalide!"
+        flash[:danger]= "Captcha invalide!"
       end
       redirect_to new_user_path
   end

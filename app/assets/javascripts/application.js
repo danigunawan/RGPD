@@ -17,3 +17,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+$(document).ready(function(){
+  $("min-check")(function () {
+    $('div.checkbox-group.required :checkbox:checked').length > 0 ; });
+});

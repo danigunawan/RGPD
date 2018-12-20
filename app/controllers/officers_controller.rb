@@ -33,9 +33,9 @@ class OfficersController < ApplicationController
        #Mail to confirm account creation
       else
         if ! Token.find_by_secret(params[:code])
-          flash[:notice] = "Mauvais code."
+          flash[:danger] = "Code invalide."
         else
-          flash[:notice] = "Erreur à l'enregistrement."
+          flash[:danger] = "Erreur à l'enregistrement."
         end
         redirect_to new_officer_path
       end

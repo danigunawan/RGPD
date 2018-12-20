@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>Rgpd</title>
+    <title>Droits informatique et libertés</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
@@ -17,6 +17,7 @@
   <body>
     <div class="container">
       <%= yield %>
+      <%= debug(params) if Rails.env.development? %>
     </div>
   </body>
 </html>
