@@ -24,4 +24,6 @@ Rails.application.routes.draw do
   resources :users do
       resource :modifications
   end
+    get 'cemetary', to: "users#cemetary", as: 'cemetary'
+  get "users/archive/:id", to: "users#archive", as: :users_archive
 end
