@@ -1,8 +1,14 @@
 <!-- Side navigation -->
 <div class="sidenav">
-  <% if current_page?(controller: 'users', action:'index')%>
-
-  <%= form_tag(users_path, method: :get, class: "form-inline") do %>
+  <% if current_page?(controller: 'users', action:'index') %>
+    <% goal = users_path %>
+  <% elsif current_page?(controller: 'users', action:'cemetary') %>
+  <% goal = cemetary_path %>
+  <% else %>
+  <% goal = nil %>
+  <% end %>
+<% if goal %>
+  <%= form_tag(goal, method: :get, class: "form-inline") do %>
 <div class = "row">
   <div class="col-7">
     <%= text_field_tag :term, params[:term],
@@ -17,6 +23,7 @@
   <% end %>
   <% end %>
   <%= link_to "Utilisateurs", users_path %>
+  <%= link_to "Archives", cemetary_path %>
   <%= link_to "Requêtes", requests_path  %>
   <%= link_to "Traitements", unsubscriptions_path  %>
   <hr/>

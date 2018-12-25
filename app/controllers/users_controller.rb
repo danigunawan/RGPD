@@ -1,10 +1,11 @@
 class UsersController < ApplicationController
-before_action :set_user, only: [:show, :edit, :update, :destroy, :confirmation]
+before_action :set_user, only: [:show, :edit, :update, :archive, :confirmation]
 skip_before_action :login_required, only: [:new, :create, :update]
 # GET /users
 # GET /users.json
 def index
-  @users = User.search(params[:term])
+  unfiltered_users = User.search(params[:term])
+  @users = unfiltered_users.select do | user | user.archived == nil end
 end
 
 # GET /users/1
@@ -74,12 +75,22 @@ end
 
 # DELETE /users/1
 # DELETE /users/1.json
-def destroy
-  @user.destroy
+def cemetary
+  unfiltered_users = User.search(params[:term])
+  @users = unfiltered_users.select do | user | user.archived == true end
+end
+def archive
+  @user.archived = true
+  if @user.save
   respond_to do |format|
-    format.html { redirect_to users_url, notice: 'La requête a bien été supprimée.' }
+    flash[:success] = 'La requête a bien été archivée.'
+    format.html { redirect_to users_path }
     format.json { head :no_content }
   end
+else
+  flash[:danger] = "Impossible d'archiver cette demande. Erreur d'enregistrement."
+  redirect_to users_path
+end
 end
 
 
@@ -92,7 +103,7 @@ end
 # Never trust parameters from the scary internet, only allow the white list through.
 def user_params
   params.require(:user).permit( :name, :surname, :email, :phone, :address,
-                        :city, :zipcode, :request_id,
+                        :city, :zipcode, :request_id, :archived,
                         modifications_attributes: [ :name, :surname, :string,
                           :email, :phone, :address, :city, :zipcode ],
                         choices_attributes: [:id, :completed] )
