@@ -41,8 +41,7 @@
         </div>
 <div class = "row user_actions">
         <%= link_to "<i class='fas fa-eye'></i>".html_safe, user, class:"btn btn-primary mr-auto" %>
-        <%= link_to "<i class='fas fa-trash-alt'></i>".html_safe, users_archive_path(user), class:"btn btn-danger ml-auto",
-                              data: { confirm: 'Êtes-vous sûr de supprimer cette demande? Cette action est irréversible.' } %>
+        <%= link_to "<i class='fas fa-undo-alt'></i>".html_safe, users_archive_path(user), class:"btn btn-success ml-auto" %>
 </div>
       </div>
     <% end %>

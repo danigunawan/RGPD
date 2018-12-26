@@ -79,11 +79,17 @@ def cemetary
   unfiltered_users = User.search(params[:term])
   @users = unfiltered_users.select do | user | user.archived == true end
 end
+
 def archive
-  @user.archived = true
+  if @user.archived == true
+    @user.archived = nil
+    flash[:success] = "La requête a bien été restaurée"
+  else
+    flash[:success] = "La requête a bien été archivée."
+    @user.archived = true
+  end
   if @user.save
   respond_to do |format|
-    flash[:success] = 'La requête a bien été archivée.'
     format.html { redirect_to users_path }
     format.json { head :no_content }
   end
