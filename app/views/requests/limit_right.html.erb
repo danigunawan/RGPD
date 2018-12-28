@@ -1,5 +1,3 @@
-<%# @user = User.find(params[:user_id]) %>
-
 <div class="row">
   <h2 class="mx-auto page-title">Demande de limitations de traitement des données</h2>
 </div>
@@ -19,23 +17,25 @@
         class: "form-check-label" %><br />
       </div>
       <%end %>
-      <% if false %>
-      <% @choice = @user.unsubscriptions.build(reason_specific: true) %>
-      <%= f.fields_for @choice do |builder| %>
-        <%= label_tag :kind, "Autre" %>
-        <%= builder.text_field :kind, class:"form-control" %>
-      <% end %>
-      <% end %>
-
     </div>
 
   </div>
   <div class="row">
     <%= f.submit "Valider", class: "btn-lg btn-primary mx-auto submit"%>
-
   </div>
   <%end %>
 
+  OU
+
+  <%= form_for(Unsubscription.new(reason_specific: true), url: new_unsubscription_path) do |f| %>
+  <div class="row">
+    <%= f.label :kind, "Autres" %>
+    <%= f.text_field :kind, class:"form-control", required: true %>
+  </div>
+  <div class="row">
+    <%= f.submit "Valider", class: "btn-lg btn-primary mx-auto submit"%>
+  </div>
+  <% end %>
 </div>
 
 

@@ -72,9 +72,9 @@ class UsersController < ApplicationController
       else
         #flash[:danger] = "Erreur."
         if !any_unsub?
-                    flash[:danger]="Vous devez sélectionner au moins un choix"
+          flash[:danger]="Vous devez sélectionner au moins un choix"
         end
-        redirect_to limit_right_requests_path(user_id: @user.id)
+          redirect_to limit_right_requests_path(user_id: @user.id)
       end
     end
 
@@ -135,7 +135,7 @@ class UsersController < ApplicationController
           end
 
           def user_updatable_params
-            params.require(:user).permit( modifications_attributes: [ :name, :surname, :string,
-              :email, :phone, :address, :city, :zipcode ], choices_attributes: [:id, :completed] )
+            params.require(:user).permit(:unsubscription, unsubscriptions_attributes: [:user_id, :id, :kind, :reason_specific ], modifications_attributes: [ :name, :surname, :string,
+              :email, :phone, :address, :city, :zipcode ], choices_attributes: [:id, :completed, :unsubscriptions_id] )
             end
           end

@@ -1,5 +1,6 @@
 class UnsubscriptionsController < ApplicationController
-  before_action :set_unsubscription, only: [:show, :edit, :update, :destroy]
+  skip_before_action :login_required, only: [:new, :create, :update]
+  before_action :set_unsubscription, only: [:show, :edit, :update, :destroy, :new, :create]
 
   # GET /unsubscriptions
   # GET /unsubscriptions.json
