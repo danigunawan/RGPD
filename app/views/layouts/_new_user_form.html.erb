@@ -52,14 +52,12 @@
 <% Request.all.each do |request| %>
   <div class="form-check col">
     <%= f.radio_button :request_id, request.id, class:"form-check-input"%>
-    <%= f.label :request_id, request.title,
-    class: "form-check-label"%><br />
+    <%= f.label :request_id, request.title, class: "form-check-label"%><br />
   </div>
   <% end %>
 
-<% end %>
-
 </div>
+<% end %>
 <hr/>
   <div class="row">
     <div class="g-recaptcha mx-auto" id = "captcha" data-sitekey="6LdFUoMUAAAAABKpmO3W8AQh71hunGY6FkOnLR2K"></div>
