@@ -70,7 +70,7 @@ class UnsubscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unsubscription_params
-      params.require(:unsubscription).permit(:kind,
+      params.require(:unsubscription).permit(:kind, :specific
                           choices_attributes: [:id, :completed, :user_id])
     end
 end
