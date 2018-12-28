@@ -7,7 +7,7 @@
 <% end %>
 
 <%= render partial: "layouts/side_nav" %>
-<%= render partial: "layouts/flash_notice" %>
+<%= render partial: "layouts/flash_notice", locals: {object: @users.last} %>
     <% @users.each do |user| %>
     <div class = "informative user-bubble  mx-auto">
       <div class="row">

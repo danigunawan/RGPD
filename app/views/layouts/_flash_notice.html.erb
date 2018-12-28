@@ -8,7 +8,8 @@
 </div>
 
 <% end %>
-<% if object.errors.any? %>
+
+<% if defined?(object) && object.present? && object.errors.any? %>
 <% object.errors.full_messages.each do |msg| %>
 <div class="alert alert-danger alert-dismissible fade show" id = "notice" role="alert" >
   <%= msg %>

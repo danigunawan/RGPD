@@ -19,6 +19,7 @@ class RequestsController < ApplicationController
   end
 
   def limit_right
+    @user = User.find(params[:user_id])
   end
 
   def limit_right_confirmation

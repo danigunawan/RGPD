@@ -1,8 +1,9 @@
-<% @user = User.find(params[:user_id]) %>
+<%# @user = User.find(params[:user_id]) %>
 
 <div class="row">
   <h2 class="mx-auto page-title">Demande de limitations de traitement des données</h2>
 </div>
+<%= render "layouts/flash_notice", object: @user %>
 
 <div class="mx-auto" style="font-size: 1em;">
   <div class="row">
@@ -12,12 +13,20 @@
 
       <%= f.fields_for :choices do |builder|%>
 
-      <div class="form-check checkbox-group required">
-        <%= builder.check_box :completed, class:"form-check-input" %>
+      <div class="form-check checkbox-group">
+        <%= builder.check_box :completed, class:"form-check-input required" %>
         <%= builder.label builder.object.unsubscription.kind,
         class: "form-check-label" %><br />
       </div>
       <%end %>
+      <% if false %>
+      <% @choice = @user.unsubscriptions.build(reason_specific: true) %>
+      <%= f.fields_for @choice do |builder| %>
+        <%= label_tag :kind, "Autre" %>
+        <%= builder.text_field :kind, class:"form-control" %>
+      <% end %>
+      <% end %>
+
     </div>
 
   </div>
@@ -32,7 +41,3 @@
 
 <%= link_to "Revenir au formulaire", new_user_path, class:"btn btn-primary",
 style:"margin: 30px;" %>
-<script> $('div.checkbox-group.required :checkbox:checked').length > 0
-</<script>
-
-</script>

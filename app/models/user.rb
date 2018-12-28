@@ -9,25 +9,11 @@ class User < ApplicationRecord
   before_save :assign_unsubs, :capitalize_name
   before_destroy :destroy_unsub
 
-  validate :unsub_must_not_be_blank
-  validates :request_id,
-  presence: { message: "Vous devez choisir un type de requête." }
 
 
 
-  def unsub_must_not_be_blank
-    if self.request_id == 3
-      pass  = false
-      self.choices.each do |unsub|
-        if unsub.completed == true
-          pass = true
-        end
-      end
-      if pass == false
-        errors.add(:choice, "Vous devez sélectionner au moins un choix")
-      end
-    end
-  end
+  # All methods under this keyword are private
+private
 
   def assign_unsubs
     Unsubscription.all.each do |unsub|
