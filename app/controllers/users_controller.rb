@@ -110,14 +110,12 @@ class UsersController < ApplicationController
       def any_unsub?
         chosen  = false
         choices = params[:user][:choices_attributes]
-          choices.each do |unsub, v|
-            puts "#{v['completed']}"
-            if v['completed'] == "1"
-             chosen = true
-           end
+        choices.each do |unsub, v|
+          if v['completed'] == "1"
+           chosen = true
           end
-            puts"#{chosen}"
-            chosen
+        end
+        chosen
       end
 
       # Use callbacks to share common setup or constraints between actions.

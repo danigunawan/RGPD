@@ -27,7 +27,7 @@
 
   OU
 
-  <%= form_for Unsubscription.new(specific: true) do |f| %>
+  <%= form_for @unsubscription do |f| %>
   <div class="row">
     <%= f.label :kind, "Autres" %>
     <%= f.text_field :kind, class:"form-control", required: true %>

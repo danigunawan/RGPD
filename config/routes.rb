@@ -20,7 +20,10 @@ Rails.application.routes.draw do
   get 'signup', to: 'officers#new', as: 'signup'
   get 'login', to: 'sessions#new', as: 'login'
   get 'logout', to: 'sessions#destroy', as: 'logout'
+
   resources :unsubscriptions
+    #post "unsubscriptions/new"
+
   resources :users do
       resource :modifications
   end

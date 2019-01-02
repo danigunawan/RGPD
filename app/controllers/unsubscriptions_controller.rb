@@ -1,6 +1,6 @@
 class UnsubscriptionsController < ApplicationController
   skip_before_action :login_required, only: [:new, :create, :update]
-  before_action :set_unsubscription, only: [:show, :edit, :update, :destroy, :new, :create]
+  before_action :set_unsubscription, only: [:show, :edit, :update, :destroy ]
 
   # GET /unsubscriptions
   # GET /unsubscriptions.json
@@ -70,7 +70,7 @@ class UnsubscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unsubscription_params
-      params.require(:unsubscription).permit(:kind, :specific
+      params.require(:unsubscription).permit(:kind, :specific,
                           choices_attributes: [:id, :completed, :user_id])
     end
 end

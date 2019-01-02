@@ -20,6 +20,8 @@ class RequestsController < ApplicationController
 
   def limit_right
     @user = User.find(params[:user_id])
+    @unsubscription = Unsubscription.new(specific: true)
+    redirect_to limit_right_confirmation_requests_path
   end
 
   def limit_right_confirmation
