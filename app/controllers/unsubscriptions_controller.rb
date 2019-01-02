@@ -29,8 +29,12 @@ class UnsubscriptionsController < ApplicationController
 
     respond_to do |format|
       if @unsubscription.save
+        if params[:user_id]
+          format.html { redirect_to limit_right_confirmation_requests_path }
+      else
         format.html { redirect_to @unsubscription, notice: 'Unsubscription was successfully created.' }
         format.json { render :show, status: :created, location: @unsubscription }
+      end
       else
         format.html { render :new }
         format.json { render json: @unsubscription.errors, status: :unprocessable_entity }
