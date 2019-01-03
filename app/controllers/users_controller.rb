@@ -129,11 +129,11 @@ class UsersController < ApplicationController
           :city, :zipcode, :request_id, :archived,
           modifications_attributes: [ :name, :surname, :string,
             :email, :phone, :address, :city, :zipcode ],
-            choices_attributes: [:id, :completed] )
+            choices_attributes: [:id, :completed, :specific] )
           end
 
           def user_updatable_params
             params.require(:user).permit(:unsubscription, unsubscriptions_attributes: [:user_id, :specific, :id, :kind, :reason_specific ], modifications_attributes: [ :name, :surname, :string,
-              :email, :phone, :address, :city, :zipcode ], choices_attributes: [:id, :completed, :unsubscriptions_id] )
+              :email, :phone, :address, :city, :zipcode ], choices_attributes: [:id, :completed, :unsubscriptions_id, :specific] )
             end
           end

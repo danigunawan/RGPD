@@ -3,7 +3,7 @@ class Unsubscription < ApplicationRecord
   has_many :users, through: :choices
   accepts_nested_attributes_for :choices
 
-  before_save :assign_users
+  before_save :assign_users, :evaluate_specificity
   before_destroy :destroy_users
 
 
@@ -12,6 +12,14 @@ class Unsubscription < ApplicationRecord
       if !self.users.exists?(user.id)
         self.users << user
       end
+    end
+  end
+
+  def evaluate_specificity
+    choice = self.choices.last
+    if self.reason_specific
+      choice.specific = true
+      choice.completed = true
     end
   end
 

@@ -10,12 +10,13 @@
       <%= form_for @user, method: :PATCH do |f| %>
 
       <%= f.fields_for :choices do |builder|%>
-
+      <% if !builder.object.unsubscription.reason_specific %>
       <div class="form-check checkbox-group">
         <%= builder.check_box :completed, class:"form-check-input required" %>
         <%= builder.label builder.object.unsubscription.kind,
         class: "form-check-label" %><br />
       </div>
+      <% end %>
       <%end %>
     </div>
 
@@ -31,6 +32,7 @@
   <div class="row">
     <%= f.label :kind, "Autres" %>
     <%= f.text_field :kind, class:"form-control", required: true %>
+    <%= f.hidden_field :reason_specific, value: true %>
   </div>
   <div class="row">
     <%= hidden_field_tag :user_id, @user.id %>

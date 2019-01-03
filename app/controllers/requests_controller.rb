@@ -21,7 +21,6 @@ class RequestsController < ApplicationController
   def limit_right
     @user = User.find(params[:user_id])
     @unsubscription = Unsubscription.new
-    @user.choices.last.specific = true
   end
 
   def limit_right_confirmation

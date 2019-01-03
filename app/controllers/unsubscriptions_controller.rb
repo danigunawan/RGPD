@@ -26,10 +26,15 @@ class UnsubscriptionsController < ApplicationController
   # POST /unsubscriptions.json
   def create
     @unsubscription = Unsubscription.new(unsubscription_params)
+    is_specific = @unsubscription.reason_specific
+    if is_specific
 
+    end
     respond_to do |format|
       if @unsubscription.save
-        if params[:user_id]
+        if is_specific
+          @unsubscription.choices.last.specific = true
+          @unsubscription.save
           format.html { redirect_to limit_right_confirmation_requests_path }
       else
         format.html { redirect_to @unsubscription, notice: 'Unsubscription was successfully created.' }
@@ -74,7 +79,7 @@ class UnsubscriptionsController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def unsubscription_params
-      params.require(:unsubscription).permit(:kind, :specific,
-                          choices_attributes: [:id, :completed, :user_id])
+      params.require(:unsubscription).permit(:kind, :reason_specific,
+                    choices_attributes: [:id, :completed, :user_id, :specific])
     end
 end
