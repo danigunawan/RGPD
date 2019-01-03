@@ -37,7 +37,7 @@ class OfficersController < ApplicationController
         else
           flash[:danger] = "Erreur à l'enregistrement."
         end
-        redirect_to new_officer_path
+        render :new
       end
   end
 

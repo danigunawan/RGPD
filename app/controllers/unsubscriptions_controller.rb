@@ -27,9 +27,6 @@ class UnsubscriptionsController < ApplicationController
   def create
     @unsubscription = Unsubscription.new(unsubscription_params)
     is_specific = @unsubscription.reason_specific
-    if is_specific
-
-    end
     respond_to do |format|
       if @unsubscription.save
         if is_specific

@@ -3,6 +3,10 @@ class User < ApplicationRecord
   has_many :unsubscriptions, through: :choices
   accepts_nested_attributes_for :choices, :unsubscriptions
 
+ VALID_EMAIL_REGEX = /\A[\w+\-.]+@[a-z\d\-.]+\.[a-z]+\z/i
+ validates :email, presence: true, length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX }
+
   has_one :request
   has_one :modification, dependent: :destroy
 

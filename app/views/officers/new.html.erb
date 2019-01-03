@@ -1,4 +1,4 @@
 <h1 class="page-title">Créer un compte de Délégué à la Protection des Données</h1>
 
-<%= render partial: "layouts/flash_notice" %>
+<%= render partial: "layouts/flash_notice", locals: {object: @officer} %>
 <%= render 'form', officer: @officer %>

@@ -25,21 +25,24 @@
     <%= f.submit "Valider", class: "btn-lg btn-primary mx-auto submit"%>
   </div>
   <%end %>
-
+</div>
   OU
 
-  <%= form_for @unsubscription do |f| %>
-  <div class="row">
+  <%= form_for @unsubscription, class:"form-inline" do |f| %>
+  <div class="form-group">
+    <div class="col">
     <%= f.label :kind, "Autres" %>
     <%= f.text_field :kind, class:"form-control", required: true %>
     <%= f.hidden_field :reason_specific, value: true %>
-  </div>
-  <div class="row">
     <%= hidden_field_tag :user_id, @user.id %>
-    <%= f.submit "Valider", class: "btn-lg btn-primary mx-auto submit"%>
+    </div>
+    <div class="col">
+      <%= f.submit "Valider", class: "btn btn-primary mx-auto submit"%>
+      </div>
+      <% end %>
   </div>
-  <% end %>
-</div>
+
+
 
 
 <%= link_to "Revenir au formulaire", root_path, class:"btn btn-primary",
