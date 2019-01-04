@@ -1,12 +1,6 @@
 <!-- Side navigation -->
 <div class="sidenav">
-  <% if current_page?(controller: 'users', action:'index') %>
-    <% goal = users_path %>
-  <% elsif current_page?(controller: 'users', action:'cemetary') %>
-  <% goal = cemetary_path %>
-  <% else %>
-  <% goal = nil %>
-  <% end %>
+<% goal = url_switcher %>
 <% if goal %>
   <%= form_tag(goal, method: :get, class: "form-inline") do %>
 <div class = "row">

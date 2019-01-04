@@ -6,6 +6,16 @@ class SessionsControllerTest < ActionDispatch::IntegrationTest
     assert_response :success
   end
 
+  test "should get login" do
+    get login_path
+    assert_response :success
+  end
+
+  test "should get logout" do
+    get logout_path
+    assert_response :success
+  end
+
   test "should get create" do
     get sessions_create_url
     assert_response :success

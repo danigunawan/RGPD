@@ -3,7 +3,7 @@
 <h1 class="mx-auto page-title">Utilisateurs archivés</h1>
 </div>
 <% if @users.empty? %>
-<% flash.now[:danger] = "Aucun utilisateur archivé avec ce nom de famille n'a été trouvé." %>
+<% flash.now[:danger] = "Aucun utilisateur archivé n'a été trouvé." %>
 <% end %>
 
 <%= render partial: "layouts/side_nav" %>

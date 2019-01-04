@@ -3,7 +3,7 @@
 <h1 class="page-title mx-auto">Connexion</h1>
 </div>
 <%= render partial: "layouts/flash_notice", locals: { object: @session } %>
-<%= form_tag sessions_path do |form| %>
+<%= form_for(:session, url: sessions_url) do |form| %>
 <div class="row">
   <div class= "col">
     <%= label_tag :email %>

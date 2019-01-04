@@ -1,4 +1,6 @@
 class OfficersController < ApplicationController
+  include SessionsHelper
+
   before_action :set_officer, only: [:show, :edit, :update, :destroy]
   skip_before_action :login_required, only: [:new, :create]
 
@@ -27,8 +29,8 @@ class OfficersController < ApplicationController
   def create
     @officer = Officer.new(officer_params)
       if Token.find_by_secret(params[:code]) && @officer.save
-        session[:officer_id] = @officer.id
         Token.find_by_secret(params[:code]).destroy
+        log_in @officer
        redirect_to users_path
        #Mail to confirm account creation
       else
