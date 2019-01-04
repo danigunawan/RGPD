@@ -26,19 +26,22 @@
   </div>
   <%end %>
 </div>
-  OU
+<hr/>
+<div class="row">
+  <h5 class="mx-auto" style="padding: 30px 0px 30px 0px;">Aucune de ces proposistions ne vous convient? Dites-nous comment nous pouvons vous aider:</h5>
+</div>
+<div class="informative col-md-8 mx-auto">
+
+
+
 
   <%= form_for @unsubscription, class:"form-inline" do |f| %>
-  <div class="form-group">
-    <div class="col">
     <%= f.label :kind, "Autres" %>
     <%= f.text_field :kind, class:"form-control", required: true %>
     <%= f.hidden_field :reason_specific, value: true %>
     <%= hidden_field_tag :user_id, @user.id %>
-    </div>
-    <div class="col">
-      <%= f.submit "Valider", class: "btn btn-primary mx-auto submit"%>
-      </div>
+
+      <%= f.submit "Valider", class: "btn btn-primary submit"%>
       <% end %>
   </div>
 
