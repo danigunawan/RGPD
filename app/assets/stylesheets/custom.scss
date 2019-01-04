@@ -102,13 +102,13 @@ body {
 	padding: 10px 20px 0px 20px;
 }
 /* sweet grey bubbles read-friendly */
-.mandatory, .facultative, .radio, .former-data, .informative, #captcha {
+.mandatory, .facultative, .radio, .former-data, .informative, .rc-anchor {
 	padding: 10px;
 	border: 1px solid black;
 	border-radius: 20px;
 	margin-bottom: 20px;
 	background-color: white;
-	box-shadow: 1px 1px 12px #555;
+	box-shadow: 1px 1px 12px #555 !important;
 }
 #captcha {
 	padding: 0px;

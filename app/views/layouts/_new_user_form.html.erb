@@ -2,45 +2,38 @@
   <h3 class="text-center">Informations obligatoires</h3>
   <div class = "row form-group">
     <div class = "col">
-      <%= f.label :name, 'Prénom' %><br>
-      <%= f.text_field :name, class: "form-control",
-      placeholder: "Entrer votre prénom", required: true %>
+      <%= f.label :name %><br>
+      <%= f.text_field :name, class: "form-control", required: true %>
     </div>
     <div class = "col">
-      <%= f.label :surname, 'Nom' %><br>
-      <%= f.text_field :surname, class: "form-control",
-      placeholder: "Entrer votre nom", required: true %>
+      <%= f.label :surname %><br>
+      <%= f.text_field :surname, class: "form-control", required: true %>
     </div>
   </div>
 
   <div class= "form-group">
-    <%= f.label :email, 'Courriel' %>
-    <%= f.email_field :email, class: "form-control",
-    placeholder: "Entrer votre courriel", required: true %>
+    <%= f.label :email %>
+    <%= f.email_field :email, class: "form-control", required: true %>
   </div>
 </div>
 
 <div class = "facultative">
   <h3 class="text-center">Informations facultatives</h3>
-  <%= f.label :phone, 'Numéro de téléphone portable' %><br>
-  <%= f.text_field :phone, class: "form-control",
-  placeholder: "Entrer votre numéro de téléphone portable"%>
+  <%= f.label :phone %><br>
+  <%= f.text_field :phone, class: "form-control" %>
 
-  <%= f.label :address, 'Adresse' %><br>
-  <%= f.text_field :address, class: "form-control",
-  placeholder: "Entrer votre adresse"%>
+  <%= f.label :address %><br>
+  <%= f.text_field :address, class: "form-control"%>
 
   <div class = "row form-group">
     <div class= "col">
-      <%= f.label :city, 'Ville' %><br>
-      <%= f.text_field :city, class: "form-control",
-      placeholder: "Entrer votre ville"%>
+      <%= f.label :city %><br>
+      <%= f.text_field :city, class: "form-control"%>
     </div>
 
     <div class= "col">
-      <%= f.label :zipcode, 'Code Postal' %><br>
-      <%= f.text_field :zipcode, class: "form-control",
-      placeholder: "Entrer votre code postal"%>
+      <%= f.label :zipcode %><br>
+      <%= f.text_field :zipcode, class: "form-control"%>
     </div>
   </div>
 </div>

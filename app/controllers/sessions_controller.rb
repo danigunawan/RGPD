@@ -5,9 +5,9 @@ class SessionsController < ApplicationController
   end
 
   def create
-    officer = Officer.find_by_email(params[:email])
-    if officer && officer.authenticate(params[:password])
-      session[:officer_id] = officer.id
+    @officer = Officer.find_by_email(params[:email])
+    if @officer && @officer.authenticate(params[:password])
+      session[:officer_id] = @officer.id
       flash[:success] = "Bienvenue!"
       redirect_to users_path
     else

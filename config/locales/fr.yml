@@ -13,7 +13,7 @@ fr:
         name:                    "Prénom"
         surname:                 "Nom de famille"
         email:                   "Courriel"
-        phone:                   "Téléphone"
+        phone:                   "Numéro de téléphone portable"
         address:                 "Adresse"
         city:                    "Ville"
         zipcode:                 "Code postal"
@@ -178,6 +178,12 @@ fr:
     select:
       prompt: Veuillez sélectionner
     submit:
+      session:
+        create: "Se connecter"
+      user:
+        create: "Valider"
+      officer:
+        create: "S'enregistrer"
       create: Créer un(e) %{model}
       submit: Enregistrer ce(tte) %{model}
       update: Modifier ce(tte) %{model}

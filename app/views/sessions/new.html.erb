@@ -2,15 +2,7 @@
 <div class="row">
 <h1 class="page-title mx-auto">Connexion</h1>
 </div>
-<% if flash[:alert] %>
-  <div class = "alert alert-danger alert-dismissible fade show" id = "notice"
-  role="alert" style="margin:50px;">
-    <%= flash[:alert] %>
-    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
-      <span aria-hidden="true">&times;</span>
-    </button>
-  </div>
-<% end %>
+<%= render partial: "layouts/flash_notice", locals: { object: @session } %>
 <%= form_tag sessions_path do |form| %>
 <div class="row">
   <div class= "col">
