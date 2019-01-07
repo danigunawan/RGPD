@@ -1,3 +1,6 @@
+/* Variables, mixins, etc... */
+$grey-bg: #F1F1F1;
+
 /* page related */
 .page-title {
 	padding: 30px;
@@ -18,10 +21,10 @@ $sidebar-width: 200px;
   top: 10%; /* Stay at the top */
   left: 0;
   background-color: #fff; /* Black */
-	border: 1px solid black;
+	border: 0px solid black;
   overflow-x: hidden; /* Disable horizontal scroll */
   padding: 10px;
-	border-radius: 10px;
+	border-radius: 0px;
 	margin-left: 20px;
 
 }
@@ -52,7 +55,7 @@ $sidebar-width: 200px;
 
 /* The navigation menu links */
 .sidenav a {
-	background-color: #f8f9fa;
+	background-color: $grey-bg;
   padding: 6px 8px 6px 16px;
   text-decoration: none;
 	text-transform: capitalize;
@@ -94,8 +97,10 @@ $sidebar-width: 200px;
 
 
 /* App styling */
+
+
 body {
-	background-color: #e9ecef !important;
+	background-color: $grey-bg !important;
 }
 
 .user_actions {
@@ -105,7 +110,7 @@ body {
 .mandatory, .facultative, .radio, .former-data, .informative, .rc-anchor {
 	padding: 20px;
 	//border: 1px solid black;
-	border-radius: 20px;
+	border-radius: 5px;
 	margin-bottom: 20px;
 	background-color: white;
 	//box-shadow: 1px 1px 12px #555 !important;
@@ -117,7 +122,7 @@ body {
 
 }
 .user-bubble{
-	margin-bottom: 50px !important;
+	margin-bottom: 25px !important;
 	font-size: 1.3em;
 	font-weight: bold;
 	&:btn {

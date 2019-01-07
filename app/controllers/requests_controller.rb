@@ -75,7 +75,8 @@ class RequestsController < ApplicationController
   def destroy
     @request.destroy
     respond_to do |format|
-      format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
+      flash[:danger] = 'Ce type de demande a bien été supprimé.'
+      format.html { redirect_to requests_url }
       format.json { head :no_content }
     end
   end
