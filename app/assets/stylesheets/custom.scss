@@ -115,12 +115,16 @@ body {
 	background-color: white;
 	//box-shadow: 1px 1px 12px #555 !important;
 }
+
+/* Captcha ID for google recaptcha */
 #captcha {
 	padding: 0px;
 	padding-right: -1px;
 	border-radius: 5px;
 
 }
+
+/*user bubbles displayed in users#index && users#cemetary */
 .user-bubble{
 	margin-bottom: 25px !important;
 	font-size: 1.3em;
@@ -130,7 +134,16 @@ body {
 		}
 }
 
+/* Used to stylize attribute titles inside user bubbles */
 .attribute_title {
 	text-decoration: underline;
 	font-weight: normal;
+}
+
+.entry {
+	margin:10px;
+	.btn {
+		font-size: 0.8em;
+	}
+	border-bottom: 2px solid $grey-bg;
 }

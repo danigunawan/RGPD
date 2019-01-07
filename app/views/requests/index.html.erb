@@ -6,27 +6,29 @@
 <hr>
 
 <div class="informative">
-  <table>
-    <thead>
-      <tr>
-        <th colspan="2">ID</th>
-        <th colspan="2">Titre</th>
-      </tr>
-    </thead>
-
-    <tbody>
+  <div class= "row">
+    <div class="col-1 attribute_title">
+      ID
+    </div>
+    <div class= "col-md-3 attribute_title">
+      Titre
+    </div>
+  </div>
       <% @requests.each do |request| %>
-        <tr>
-          <td colspan="2"><%= request.id %> |</td>
-          <td colspan="2"> <%= request.title %></td>
-          <td><%= link_to '<span class="fas fa-eye">'.html_safe, request, class:"btn btn-primary" %></td>
-          <td><%= link_to '<span class="fas fa-cog">'.html_safe, edit_request_path(request), class:"btn btn-warning" %></td>
-          <td><%= link_to '<span class="fas fa-trash-alt">'.html_safe, request, method: :delete, data: { confirm: 'Êtes-vous sûr? Une telle action peut engendrer des bugs.' }, class:"btn btn-danger" %></td>
-        </tr>
+        <div class="row entry">
+          <div class = "col-1">
+           <%= request.id %> |
+          </div>
+          <div class = "col">
+            <%= request.title %>
+          </div>
+          <div class = "ml-auto"%>
+          <%= link_to '<span class="fas fa-eye">'.html_safe, request, title:"Voir", class:"btn btn-primary" %> |
+          <%= link_to '<span class="fas fa-cog">'.html_safe, edit_request_path(request), title:"Modifier", class:"btn btn-warning" %> |
+          <%= link_to '<span class="fas fa-trash-alt">'.html_safe, request, method: :delete, data: { confirm: 'Êtes-vous sûr? Une telle action peut engendrer des bugs.' }, title: "Supprimer",class:"btn btn-danger" %>
+          </div>
+        </div>
       <% end %>
-    </tbody>
-  </table>
-
 </div>
 
 <br>
