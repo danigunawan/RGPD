@@ -10,9 +10,14 @@ VALID_PASSWORD_REGEX = /\A
    (?=.*[[:^alnum:]]) # Must contain a symbol
  /x
 
-  validates :email, presence: {message: "Courriel requis."}, uniqueness: { message: "Ce courriel est déjà pris." },
-                        length: { maximum: 255, message: "Courriel trop long" },
-                    format: { with: VALID_EMAIL_REGEX, message: "Courriel invalide." }
-  validates :password, presence: true, length: {minimum: 8, message: "Le mot de passe est trop court(doit faire au moins 8 caractères)."},
-                format: { with: VALID_PASSWORD_REGEX, message: "Le mot de passe doit contenir: 1 chiffre, 1 minuscule, 1 majuscule, 1 caractère spécial." }
+  validates :email, presence: true, uniqueness: true,
+                        length: { maximum: 255 },
+                    format: { with: VALID_EMAIL_REGEX }
+  validates :password, presence: true, length: { minimum: 8 },
+                format: { with: VALID_PASSWORD_REGEX }
+
+# Returns a random token
+  def Officer.new_token
+    SecureRandom.urlsafe_base64
+  end
 end
