@@ -1,25 +1,36 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: "layouts/side_nav" %>
+<div class="row">
+  <h1 class="page-title mx-auto">Traitements</h1>
+</div>
+<%= render partial: "layouts/flash_notice", locals: {object: @unsubscriptions.last} %>
+<hr>
 
-<h1>Unsubscriptions</h1>
-
-<table>
-  <thead>
-    <tr>
-      <th colspan="3"></th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @unsubscriptions.each do |unsubscription| %>
-      <tr>
-        <td><%= link_to 'Show', unsubscription %></td>
-        <td><%= link_to 'Edit', edit_unsubscription_path(unsubscription) %></td>
-        <td><%= link_to 'Destroy', unsubscription, method: :delete, data: { confirm: 'Are you sure?' } %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<div class="informative">
+  <div class= "row">
+    <div class="col-1 attribute_title">
+      ID
+    </div>
+    <div class= "col-md-3 attribute_title">
+      Titre
+    </div>
+  </div>
+      <% @unsubscriptions.each do |unsubscription| %>
+        <div class="row entry">
+          <div class = "col-1">
+           <%= unsubscription.id %> |
+          </div>
+          <div class = "col">
+            <%= unsubscription.kind %>
+          </div>
+          <div class = "ml-auto"%>
+          <%= link_to '<span class="fas fa-eye">'.html_safe, unsubscription, title:"Voir", class:"btn btn-primary" %> |
+          <%= link_to '<span class="fas fa-cog">'.html_safe, edit_unsubscription_path(unsubscription), title:"Modifier", class:"btn btn-warning" %> |
+          <%= link_to '<span class="fas fa-trash-alt">'.html_safe, unsubscription, method: :delete, data: { confirm: 'Êtes-vous sûr? Cet action est irréversible.' }, title: "Supprimer",class:"btn btn-danger" %>
+          </div>
+        </div>
+      <% end %>
+</div>
 
 <br>
 
-<%= link_to 'New Unsubscription', new_unsubscription_path %>
+<%= link_to '<span class="fas fa-plus"></span> Nouveau'.html_safe, new_unsubscription_path, class:"btn btn-success" %>

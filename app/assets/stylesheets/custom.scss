@@ -147,3 +147,23 @@ body {
 	}
 	border-bottom: 2px solid $grey-bg;
 }
+
+/* HEADER */
+
+.navbar {
+	width: 100%;
+	background-color: white;
+	#logo {
+		font-size: 2.3em;
+	}
+	a {
+		color: black !important;
+		font-size: 2em;
+		text-decoration: none;
+		padding: 0px 30px 0px 30px;
+
+		&:hover {
+			text-decoration: none !important;
+		}
+	}
+}

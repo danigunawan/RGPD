@@ -1,7 +1,8 @@
+<%= render partial: "layouts/side_nav" %>
 <div class="row">
   <h1 class="page-title mx-auto">Nouveau type de demande</h1>
 </div>
-<%= render "layouts/flash_notice" %>
+<%= render "layouts/flash_notice", locals: {object: @request} %>
 
 <%= form_for @request do |f| %>
 <div class="col-12 informative">

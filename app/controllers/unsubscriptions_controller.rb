@@ -34,7 +34,8 @@ class UnsubscriptionsController < ApplicationController
           @unsubscription.save
           format.html { redirect_to limit_right_confirmation_requests_path }
       else
-        format.html { redirect_to @unsubscription, notice: 'Unsubscription was successfully created.' }
+        flash[:success] = "Le traitement a bien été créé!"
+        format.html { redirect_to @unsubscription }
         format.json { render :show, status: :created, location: @unsubscription }
       end
       else
@@ -49,7 +50,8 @@ class UnsubscriptionsController < ApplicationController
   def update
     respond_to do |format|
       if @unsubscription.update(unsubscription_params)
-        format.html { redirect_to @unsubscription, notice: 'Unsubscription was successfully updated.' }
+        flash[:success] = "Le traitement a bien été modifié!"
+        format.html { redirect_to @unsubscription }
         format.json { render :show, status: :ok, location: @unsubscription }
       else
         format.html { render :edit }
@@ -63,7 +65,8 @@ class UnsubscriptionsController < ApplicationController
   def destroy
     @unsubscription.destroy
     respond_to do |format|
-      format.html { redirect_to unsubscriptions_url, notice: 'Unsubscription was successfully destroyed.' }
+      flash[:succes] = "Le traitement a bien été supprimé!"
+      format.html { redirect_to unsubscriptions_url }
       format.json { head :no_content }
     end
   end
