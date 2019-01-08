@@ -1,14 +1,19 @@
 <div class="row">
-  <h1 class="page-title mx-auto">New Request</h1>
+  <h1 class="page-title mx-auto">Nouveau type de demande</h1>
 </div>
 <%= render "layouts/flash_notice" %>
 
 <%= form_for @request do |f| %>
-<div class="row">
-  <%= f.label :title %>
+<div class="col-12 informative">
+  <div class="mx-auto">
+    <%= f.label :title %>
   <%= f.text_field :title, class: "form-control", required: true %>
-  <%= f.submit '<span class="fas fa-plus">Ajouter</span>'.html_safe %>
+  <%= button_tag(type: 'submit', class: "btn btn-success") do %>
+  <span class="fas fa-plus"></span> Ajouter
+<% end %>
   </div>
+</div>
+
 <% end %>
 
-<%= link_to 'Back', requests_path %>
+<%= link_to 'Retour', requests_path, class:"btn btn-search" %>

@@ -18,7 +18,7 @@
 <div class="row">
   <div class="mx-auto">
 
-  <%= link_to '<span class="fas fa-cog">'.html_safe, edit_request_path(request), title:"Modifier", class:"btn btn-warning" %> |
+  <%= link_to '<span class="fas fa-cog">'.html_safe, edit_request_path(@request), title:"Modifier", class:"btn btn-warning" %> |
   <%= link_to '<span class="fas fa-trash-alt">'.html_safe, @request, method: :delete, data: { confirm: 'Êtes-vous sûr? Une telle action peut engendrer des bugs.' }, title: "Supprimer",class:"btn btn-danger" %>
   </div>
 <br>
