@@ -8,4 +8,17 @@ module UsersHelper
       nil
     end
   end
+
+  def request_from_user
+    Request.find(@user.request_id).title
+  end
+
+  def archived_col_sizer
+    if @user.archived
+      3
+    else
+      6
+    end
+  end
+  
 end

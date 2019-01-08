@@ -1,39 +1,113 @@
-<p id="notice"><%= notice %></p>
+<%= render partial:"layouts/flash_notice", locals: {object: @user} %>
 
-<p>
-  <strong>Name:</strong>
-  <%= @user.name %>
-</p>
+<div class="row">
+  <h1 class="mx-auto page-title"><%= @user.name %> <%= @user.surname %></h1>
+</div>
+<hr>
+<div class="row informative user-bubble">
+    <div class="col-<%= archived_col_sizer %>">
+    <span class="attribute_title">Demande faite le:</span>  <%= @user.created_at.strftime("%d-%m-%Y")%> à <%= @user.created_at.strftime("%H:%M")%>.
+    </div>
+    <div class="col-<%= archived_col_sizer %>">
+      <span class="attribute_title">Type de la demande:</span> <%= request_from_user %>
+    </div>
+    <% if @user.archived %>
+    <div class="col-3">
+      <span class="attribute_title">Archivé le:</span> <%= @user.updated_at.strftime("%d-%m-%Y")%> à <%= @user.updated_at.strftime("%H:%M")%>.
+    </div>
+    <% end %>
+</div>
+<hr>
+<div class="informative user-bubble">
+  <div class="row">
+    <h3 class="mx-auto">Informations fournies par l'utilisateur</h3>
+  </div>
+  <div class="row">
+    <div class="col">
+    <span class="attribute_title">Prénom: </span> <%= @user.name %>
+    </div>
+    <div class="col">
+      <span class="attribute_title">Nom: </span> <%= @user.surname %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col mx-auto">
+      <span class="attribute_title">Courriel: </span> <%= @user.email %>
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <span class="attribute_title">Numéro de Téléphone portable:</span> <%= @user.phone %>
+    </div>
+  </div>
+  <div class="row">
+  <div class="col">
+    <span class="attribute_title">Adresse:</span> <%= @user.address %>
+  </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      <span class="attribute_title">Ville:</span> <%= @user.city %>
+    </div>
+    <div class="col">
+      <span class="attribute_title">Code postal:</span> <%= @user.zipcode %>
+    </div>
+  </div>
+</div>
+<% if @user.request_id == 2 %>
+<% u = @user.modification %>
+<div class="informative user-bubble">
+  <div class="row">
+    <h3 class="mx-auto">Modifications à effectuer</h3>
+  </div>
+      <div class="row">
+        <div class="col">
+        <span class="attribute_title">Prénom: </span> <%= u.name %>
+        </div>
+        <div class="col">
+          <span class="attribute_title">Nom: </span> <%= u.surname %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col mx-auto">
+          <span class="attribute_title">Courriel: </span> <%= u.email %>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <span class="attribute_title">Numéro de Téléphone portable:</span> <%= u.phone %>
+        </div>
+      </div>
+      <div class="row">
+      <div class="col">
+        <span class="attribute_title">Adresse:</span> <%= u.address %>
+      </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <span class="attribute_title">Ville:</span> <%= u.city %>
+        </div>
+        <div class="col">
+          <span class="attribute_title">Code postal:</span> <%= u.zipcode %>
+        </div>
+      </div>
+    </div>
 
-<p>
-  <strong>Surname:</strong>
-  <%= @user.surname %>
-</p>
 
-<p>
-  <strong>Email:</strong>
-  <%= @user.email %>
-</p>
+<% elsif @user.request_id == 3%>
+<div class="informative user-bubble">
+  <div class="row">
+    <h3 class="mx-auto">Choix de l'utilisateur</h3>
+    </div><ul>
+    <% @user.choices.each do |choice| %>
+    <% if choice.completed %>
+    <div class="row">
+      <li><span class="mx-auto"><%= choice.unsubscription.kind %></span></li>
+    </div>
+    <% end %>
+    <% end %>
+    </ul>
+  </div>
+<% end %>
 
-<p>
-  <strong>Phone:</strong>
-  <%= @user.phone %>
-</p>
-
-<p>
-  <strong>Address:</strong>
-  <%= @user.address %>
-</p>
-
-<p>
-  <strong>City:</strong>
-  <%= @user.city %>
-</p>
-
-<p>
-  <strong>Zipcode:</strong>
-  <%= @user.zipcode %>
-</p>
-
-<%= link_to 'Edit', edit_user_path(@user) %> |
-<%= link_to 'Back', users_path %>
+<%= link_to 'Retour', users_path, class: "btn btn-search" %>
