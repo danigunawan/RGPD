@@ -1,6 +1,16 @@
-<h1>Editing Request</h1>
+<div class="row">
+<h1 class="mx-auto page-title">Modification du type de demande</h1>
+</div>
+<div class="informative col mx-auto">
+    <%= form_for @request do |f| %>
+    <div class="col">
+      <%= f.label :title %>
+      <%= f.text_field :title, class:"form-control", required: true %>
+      </div>
+      <div class= "col">
+      <%= f.submit "Valider", class:"submit btn btn-primary"%>
+      </div>
+    <% end %>
+</div>
 
-<%= render 'form', request: @request %>
-
-<%= link_to 'Show', @request %> |
-<%= link_to 'Back', requests_path %>
+<%= link_to 'Retour', requests_path, class:"btn btn-search" %>

@@ -29,6 +29,8 @@ fr:
         updated_at:              "Mis à jour le"
       unsubscription:
         kind:                    "Titre"
+      request:
+        title:                   "Titre"
     errors:
       messages:
         record_invalid: 'La validation a échoué : %{errors}'
