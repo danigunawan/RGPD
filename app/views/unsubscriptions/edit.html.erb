@@ -1,12 +1,12 @@
 <%= render partial: "layouts/side_nav" %>
 <div class="row">
-<h1 class="mx-auto page-title">Modification du type de demande</h1>
+<h1 class="mx-auto page-title">Modification du traitement</h1>
 </div>
 <div class="informative col mx-auto">
-    <%= form_for @request do |f| %>
+    <%= form_for @unsubscription do |f| %>
     <div class="col">
       <%= f.label :title %>
-      <%= f.text_field :title, class:"form-control", required: true %>
+      <%= f.text_field :kind, class:"form-control", required: true %>
       </div>
       <div class= "col">
       <%= f.submit "Valider", class:"submit btn btn-primary"%>
@@ -14,4 +14,4 @@
     <% end %>
 </div>
 
-<%= link_to 'Retour', requests_path, class:"btn btn-search" %>
+<%= link_to 'Retour', unsubscriptions_path, class:"btn btn-search" %>

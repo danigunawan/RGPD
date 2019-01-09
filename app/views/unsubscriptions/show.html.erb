@@ -1,4 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: "layouts/side_nav" %>
+<div class="row">
+  <h1 class="page-title mx-auto"><%= @unsubscription.kind %></h1>
+</div>
+<hr>
+  <div class="informative">
+    <div class="row">
+    <div class="col">
+      <span class="attribute_title">Titre:</span> <%= @unsubscription.kind %>
+    </div>
+    <div class="col">
+      <span class="attribute_title">Créé le:</span> <%= @unsubscription.created_at.strftime("%d-%m-%Y") %> à <%= @unsubscription.created_at.strftime("%H:%M")%>
+    </div>
+    <div class="col">
+      <span class="attribute_title">Modifié la dernière fois le:</span> <%= @unsubscription.updated_at.strftime("%d-%m-%Y") %> à <%= @unsubscription.updated_at.strftime("%H:%M")%>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="mx-auto">
 
-<%= link_to 'Edit', edit_unsubscription_path(@unsubscription) %> |
-<%= link_to 'Back', unsubscriptions_path %>
+  <%= link_to '<span class="fas fa-cog">'.html_safe, edit_unsubscription_path(@unsubscription), title:"Modifier", class:"btn btn-warning" %> |
+  <%= link_to '<span class="fas fa-trash-alt">'.html_safe, @unsubscription, method: :delete, data: { confirm: 'Êtes-vous sûr? Une telle action peut engendrer des bugs.' }, title: "Supprimer",class:"btn btn-danger" %>
+  </div>
+<br>
+</div>
+<%= link_to 'Retour', unsubscriptions_path, class: "btn btn-search" %>

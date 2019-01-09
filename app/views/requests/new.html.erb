@@ -1,6 +1,20 @@
-<h1>New Request</h1>
-<%= render "layouts/flash_notice" %>
+<%= render partial: "layouts/side_nav" %>
+<div class="row">
+  <h1 class="page-title mx-auto">Nouveau type de demande</h1>
+</div>
+<%= render "layouts/flash_notice", locals: {object: @request} %>
 
-<%= render 'form', request: @request %>
+<%= form_for @request do |f| %>
+<div class="col-12 informative">
+  <div class="mx-auto">
+    <%= f.label :title %>
+  <%= f.text_field :title, class: "form-control", required: true %>
+  <%= button_tag(type: 'submit', class: "btn btn-success") do %>
+  <span class="fas fa-plus"></span> Ajouter
+<% end %>
+  </div>
+</div>
 
-<%= link_to 'Back', requests_path %>
+<% end %>
+
+<%= link_to 'Retour', requests_path, class:"btn btn-search" %>

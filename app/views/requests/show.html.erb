@@ -1,4 +1,27 @@
-<p id="notice"><%= notice %></p>
+<%= render partial: "layouts/side_nav" %>
+<div class="row">
+  <h1 class="page-title mx-auto"><%= @request.title %></h1>
+</div>
+<hr>
+  <div class="informative">
+    <div class="row">
+    <div class="col">
+      <span class="attribute_title">Titre:</span> <%= @request.title %>
+    </div>
+    <div class="col">
+      <span class="attribute_title">Créé le:</span> <%= @request.created_at.strftime("%d-%m-%Y") %> à <%= @request.created_at.strftime("%H:%M")%>
+    </div>
+    <div class="col">
+      <span class="attribute_title">Modifié la dernière fois le:</span> <%= @request.updated_at.strftime("%d-%m-%Y") %> à <%= @request.updated_at.strftime("%H:%M")%>
+    </div>
+  </div>
+</div>
+<div class="row">
+  <div class="mx-auto">
 
-<%= link_to 'Edit', edit_request_path(@request) %> |
-<%= link_to 'Back', requests_path %>
+  <%= link_to '<span class="fas fa-cog">'.html_safe, edit_request_path(@request), title:"Modifier", class:"btn btn-warning" %> |
+  <%= link_to '<span class="fas fa-trash-alt">'.html_safe, @request, method: :delete, data: { confirm: 'Êtes-vous sûr? Une telle action peut engendrer des bugs.' }, title: "Supprimer",class:"btn btn-danger" %>
+  </div>
+<br>
+</div>
+<%= link_to 'Retour', requests_path, class: "btn btn-search" %>

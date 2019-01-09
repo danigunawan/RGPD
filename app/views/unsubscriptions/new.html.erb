@@ -1,6 +1,21 @@
-<h1>New Unsubscription</h1>
-<%= render partial: "layouts/flash_notice" %>
+<%= render partial: "layouts/side_nav" %>
+<div class="row">
+<h1 class="page-title mx-auto">Nouveau traitement</h1>
+</div>
 
-<%= render 'form', unsubscription: @unsubscription %>
+<%= render partial: "layouts/flash_notice", locals: {objet: @unsubscription } %>
 
-<%= link_to 'Back', unsubscriptions_path %>
+<%= form_for @unsubscription do |f| %>
+<div class="col-12 informative">
+  <div class="mx-auto">
+    <%= f.label :kind %>
+  <%= f.text_field :kind, class: "form-control", required: true %>
+  <%= button_tag(type: 'submit', class: "btn btn-success") do %>
+  <span class="fas fa-plus"></span> Ajouter
+<% end %>
+  </div>
+</div>
+
+<% end %>
+
+<%= link_to 'Retour', requests_path, class:"btn btn-search" %>

@@ -47,7 +47,8 @@ class RequestsController < ApplicationController
 
     respond_to do |format|
       if @request.save
-        format.html { redirect_to requests_path, notice: 'Request was successfully created.' }
+        flash[:success] = "Ce type de demande a bien été créé!"
+        format.html { redirect_to requests_path }
         format.json { render :show, status: :created, location: @request }
       else
         format.html { render :new }
@@ -61,7 +62,8 @@ class RequestsController < ApplicationController
   def update
     respond_to do |format|
       if @request.update(request_params)
-        format.html { redirect_to @request, notice: 'Request was successfully updated.' }
+        flash[:success] = "Ce type de demande a bien été modifié!"
+        format.html { redirect_to @request }
         format.json { render :show, status: :ok, location: @request }
       else
         format.html { render :edit }
@@ -75,7 +77,8 @@ class RequestsController < ApplicationController
   def destroy
     @request.destroy
     respond_to do |format|
-      format.html { redirect_to requests_url, notice: 'Request was successfully destroyed.' }
+      flash[:success] = 'Ce type de demande a bien été supprimé.'
+      format.html { redirect_to requests_url }
       format.json { head :no_content }
     end
   end
