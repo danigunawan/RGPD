@@ -6,8 +6,10 @@ application up and running.
 Things you may want to cover:
 
 * Ruby version
-
+ ruby-2.5.1 | rails 
 * System dependencies
+
+postgresql postgresql-server-dev-all  build-essential dirmngr gnupg ruby ruby-dev zlib1g-dev libruby libssl-dev libpcre3-dev libcurl4-openssl-dev rake ruby-rack
 
 * Configuration
 
