@@ -12,13 +12,8 @@
 //
 //= require jquery3
 //= require popper
-//= require bootstrap
 //= require rails-ujs
 //= require activestorage
 //= require turbolinks
+//= require bootstrap
 //= require_tree .
-
-$(document).ready(function(){
-  $("min-check")(function () {
-    $('div.checkbox-group.required :checkbox:checked').length > 0 ; });
-});

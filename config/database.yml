@@ -21,6 +21,8 @@ test:
   timeout: 5000
 
 production:
+  username: rails_user
+  password: P1nkfloyd
   adapter: postgresql
   database: my_database_production
   pool: 5

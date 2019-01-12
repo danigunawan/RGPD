@@ -13,7 +13,7 @@ gem 'bcrypt', '~> 3.1.7'
 # Use sprocket (utilitary for asset pipeline management)
 gem 'sprockets-rails', :require => 'sprockets/railtie'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
-gem 'rails', '~> 5.2.1'
+gem 'rails'
 # Use Bootstrap as CSS 3 framework
 gem 'bootstrap',  '~> 4.0.0'
 # Use jquery as bootstrap dependency
