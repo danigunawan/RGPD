@@ -10,6 +10,7 @@ class SessionsController < ApplicationController
     @officer = Officer.find_by_email(params[:email])
     if @officer && @officer.authenticate(params[:password])
       log_in(@officer)
+      remember officer
       flash[:success] = "Bienvenue!"
       redirect_to users_path
     else

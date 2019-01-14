@@ -5,11 +5,15 @@ class ApplicationController < ActionController::Base
 #Looks for a logged in user in the session and loads it.
 # If no officer found, returns nil
   def current_officer
-    if session[:officer_id]
-      @current_officer ||= Officer.find(session[:officer_id])
-    else
-      @current_officer = nil
+    if (officer_id = session[:officer_id])
+      @current_officer ||= Officer.find(officer_id)
+    elsif (officer_id = cookies.signed[:officer_id])
+      officer = Officer.find(officer_id)
+    if officer && officer.authenticated?(cookies[:remember_token])
+      log_in officer
+      @current_officer= officer
     end
+  end
   end
 
 #Redirects to login if officer is not logged in.
