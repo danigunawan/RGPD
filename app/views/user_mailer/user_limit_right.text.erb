@@ -1,0 +1,17 @@
+Votre demande de limitation de traitement de vos données
+================================================================================
+
+    Bonjour <%= @user.name + " " + @user.surname %>, <br/>
+
+    Votre demande de limitation de traitement de vos données a bien été prise
+    en compte et va être traitée par nos services dans les plus brefs délais.
+
+    Pour rappel, voici vos choix:
+
+    <% limits = @user.choices %>
+    <% limits.each do |limit| %>
+    <% if limit.completed %>
+    * <%= limit.unsubscription.kind %>
+    <% end %>
+
+================================================================================

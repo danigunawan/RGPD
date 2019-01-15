@@ -2,12 +2,14 @@ Merci pour votre demande, <%= @user.name %>,
 
 ================================================================================
 
+Bonjour <%= @user.name + " " + @user.surname %>, 
+
 Votre demande de modification de vos données a bien été prise en compte et va
 être traitée par nos services dans les plus bref délais.
 
 ---
 
-Pour rappel, voici les informations que vous voulez que nous modifions:
+Pour rappel, voici les informations que vous nous avez transmises pour moficiation:
 <% new = @user.modification %>
 Prénom: <%= new.name %> | Nom: <%= new.surname %>
 Courriel: <%= new.email %>

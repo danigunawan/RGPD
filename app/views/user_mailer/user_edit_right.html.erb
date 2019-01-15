@@ -1,0 +1,19 @@
+
+    <h1>Votre demande de modification de vos données</h1>
+    <p>
+    Bonjour <%= @user.name + " " + @user.surname %>,<br/>
+    </p>
+
+    <p>
+      Votre demande de modification a bien été prise en compte et va être traitée
+      par nos services dans les plus brefs délais.
+    </p>
+    <p>
+      Pour rappel, voici les informations que vous nous avez transmises pour moficiation:
+    </p>
+    <% new = @user.modification %>
+<p>Prénom: <%= new.name %> | Nom: <%= new.surname %></p>
+<p>Courriel: <%= new.email %></p>
+<p>Adresse: <%= new.address %></p>
+<p>Ville: <%= new.city %> | <%= new.zipcod %></p>
+<hr>
