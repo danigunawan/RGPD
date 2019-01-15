@@ -1,0 +1,20 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Demande de modification de vos données</title>
+    <%= stylesheet_link_tag     'application', media: 'all', 'data-turbolinks-track': 'reload' %>
+    <%= javascript_include_tag  'application', 'data-turbolinks-track': 'reload' %>
+  </head>
+  <body>
+    <h1>Votre demande de modification de vos données</h1>
+    <p>
+    Bonjour, <%= @user.name + " " + @user.surname %> <br/>
+    </p>
+
+    <p>
+      Votre demande de modification a bien été prise en compte et va être traitée
+      par nos services dans les plus brefs délais.
+    </p>
+    <p>Nous vous remercions pour votre patience.</p>
+  </body>
+</html>
