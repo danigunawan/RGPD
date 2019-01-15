@@ -16,8 +16,15 @@
     <%= password_field_tag :password, '', class: "form-control" %>
   </div>
   </div>
+  <div class="row">
+      <%= form.label :remember_me, class:"checkbox inline" do %>
+      <%= form.check_box :remember_me %>
+      <span>Se souvenir de moi</span>
+      <% end %>
+  </div>
   <hr />
   <div class="row">
     <%= submit_tag "Se Connecter", class: "btn-lg btn-primary submit center" %>
   </div>
 <% end %>
+<p>Pas encore de compte? <%= link_to "Enregistrez-vous!" %></p>

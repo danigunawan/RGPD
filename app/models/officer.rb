@@ -19,9 +19,9 @@ VALID_PASSWORD_REGEX = /\A
 
 # Returns the hash digest of the given string.
 def Officer.digest(string)
-  cost = ActiveModel::SecurePassword.min_cost? BCrypt::Engine::MIN_COST :
+  cost = ActiveModel::SecurePassword.min_cost ? BCrypt::Engine::MIN_COST :
                                               BCrypt::Engine.cost
-  Bcrypt::Password.create(string, cost: cost)
+  BCrypt::Password.create(string, cost: cost)
 end
 
 # Returns a random token
@@ -29,14 +29,19 @@ end
     SecureRandom.urlsafe_base64
   end
 
-# Returns true if the given toen matches the digest.
   def remember
     self.remember_token = Officer.new_token
     update_attribute(:remember_digest, Officer.digest(remember_token))
   end
 
+  # Returns true if the given token matches the digest.
   def authenticated?(remember_token)
+    return false if remember_digest.nil?
     BCrypt::Password.new(remember_digest).is_password?(remember_token)
   end
 
+# Forgets an officer
+  def forget
+    update_attribute(:remember_digest, nil)
+  end
 end

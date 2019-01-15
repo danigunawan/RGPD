@@ -10,7 +10,7 @@ class SessionsController < ApplicationController
     @officer = Officer.find_by_email(params[:email])
     if @officer && @officer.authenticate(params[:password])
       log_in(@officer)
-      remember officer
+      remember @officer
       flash[:success] = "Bienvenue!"
       redirect_to users_path
     else
@@ -21,7 +21,7 @@ class SessionsController < ApplicationController
 
 
   def destroy
-    log_out
+    log_out if logged_in?
     flash[:success] = "Déconnecté!"
     redirect_to new_session_path
   end
