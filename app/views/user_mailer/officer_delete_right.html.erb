@@ -1,0 +1,16 @@
+<h1>Demande d'effacement: <%= @user.name + " " + @user.surname %>/h1>
+<p>
+Bonjour,
+</p>
+<p>
+  Vous avez reçu une nouvelle demande d'effacement consultable à cette adresse:
+  <a href="rgpd.madparis.fr/users/<%= @user.id %>">rgpd.madparis.fr</a>
+</p>
+
+<p>Voici les informations fournies par l'utilisateur:</p>
+
+<p>Prénom: <%= @user.name %> | Nom: <%= @user.surname %></p>
+<p>Courriel: <%= @user.email %></p>
+<p>Adresse: <%= @user.address %></p>
+<p>Ville: <%= @user.city %> | <%= @user.zipcode %></p>
+<hr>

@@ -1,0 +1,26 @@
+
+    <h1>Demande de rectification: <%= @user.name + " " + @user.surname %>/h1>
+    <p>
+    Bonjour,
+    </p>
+    <p>
+      Vous avez reçu une nouvelle demande de rectification des données consultable à cette adresse:
+      <a href="rgpd.madparis.fr/users/<%= @user.id %>">rgpd.madparis.fr</a>
+    </p>
+
+    <p>Voici les informations fournies par l'utilisateur:</p>
+
+
+    <p>Prénom: <%= @user.name %> | Nom: <%= @user.surname %></p>
+    <p>Courriel: <%= @user.email %></p>
+    <p>Adresse: <%= @user.address %></p>
+    <p>Ville: <%= @user.city %> | <%= @user.zipcode %></p>
+    <hr>
+
+    <p>Voici les données à modifier:</p>
+<% new = @user.modification %>
+    <p>Prénom: <%= new.name %> | Nom: <%= new.surname %></p>
+    <p>Courriel: <%= new.email %></p>
+    <p>Adresse: <%= new.address %></p>
+    <p>Ville: <%= new.city %> | <%= new.zipcode %></p>
+    <hr>

@@ -1,17 +1,27 @@
 
-    <h1>Demande de droit d'accès de: <%= @user.name + " " + @user.surname %>/h1>
+    <h1>Demande de limitation: <%= @user.name + " " + @user.surname %>/h1>
     <p>
     Bonjour,
     </p>
     <p>
-      Vous avez reçu une nouvelle demande de droit d'accès consultable à cette adresse:
+      Vous avez reçu une nouvelle demande de limitation de traitement des données consultable à cette adresse:
       <a href="rgpd.madparis.fr/users/<%= @user.id %>">rgpd.madparis.fr</a>
     </p>
 
     <p>Voici les informations fournies par l'utilisateur:</p>
+
 
     <p>Prénom: <%= @user.name %> | Nom: <%= @user.surname %></p>
     <p>Courriel: <%= @user.email %></p>
     <p>Adresse: <%= @user.address %></p>
     <p>Ville: <%= @user.city %> | <%= @user.zipcode %></p>
     <hr>
+
+    <p>Voici les choix de l'utilisateur:</p>
+<ul>
+  <% @user.choices.each do |choice| %>
+    <% if choice.completed %>
+      <li><%= choice.unsubscription.kind %></li>
+    <% end %>
+  <% end %>
+  </ul>
