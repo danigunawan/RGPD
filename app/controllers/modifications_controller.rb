@@ -32,8 +32,8 @@ class ModificationsController < ApplicationController
     @user.modification = @modification
       if @modification.save
         redirect_to edit_right_requests_path
-        #MAIL THE DPO
-        #MAIL THE User
+        OfficerMailer.with(user: @user).edit_right.deliver_later
+        UserMailer.with(user: @user).edit_right.deliver_later
       else
         redirect_to new_user_modifications_path
       end

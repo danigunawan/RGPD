@@ -34,17 +34,23 @@ class UsersController < ApplicationController
         when 1
           redirect_to access_right_requests_path
           #MAIL THE DPO
+          OfficerMailer.with(user: @user).access_right.deliver_later
+
           #MAIL THE USER
+          UserMailer.with(user: @user).access_right.deliver_later
         when 2
           redirect_to new_user_modifications_path(@user)
-          #mail sent through modifications_controller
         when 3
           redirect_to  limit_right_requests_path(user_id: @user.id)
           #Mail sent through requests_controller
         when 4
           redirect_to delete_right_requests_path
+          
           #MAIL THE DPO
+          OfficerMailer.with(user: @user).delete_right.deliver_later
+
           #MAIL THE USER
+          UserMailer.with(user: @user).delete_right.deliver_later
         else
           flash[:danger] = "Veuillez préciser le type de la requête."
           redirect_to new_user_path
