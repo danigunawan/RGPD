@@ -1,0 +1,16 @@
+
+Vous avez reçu une nouvelle demande de droit d'accès de: <%= @user.name + " " + @user.surname %>
+
+Cette demande est consultable à cette adresse: <%= url_for @user %>
+
+================================================================================
+
+    Voici les informations fournies par l'utilisateur:
+
+    Prénom: <%= @user.name %> | Nom: <%= @user.surname %>
+    Courriel: <%= @user.email %>
+    Adresse: <%= @user.address %>
+    Ville: <%= @user.city %> | <%= @user.zipcode %>
+
+
+================================================================================

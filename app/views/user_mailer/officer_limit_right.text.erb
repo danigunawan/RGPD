@@ -1,0 +1,29 @@
+Vous avez reçu une nouvelle demande de limitation de traitement des données provenant de <%= @user.name + " " + @user.surname %>.
+
+================================================================================
+
+
+Vous pouvez consulter cette requête à l'adresse <%= url_for @user %>
+
+
+Données de contact fournies par l'utilisateur:
+Prénom: <%= @user.name %> | Nom: <%= @user.surname %>
+Courriel: <%= @user.email %>
+Numéro de téléphone: <%= @user.phone %>
+Adresse: <%= @user.address %>
+Ville: <%= @user.city %> | Code postal: <%= @user.zipcode %>
+
+
+
+
+Voici les choix de l'utilisateur:
+
+---
+
+<% @user.choices.each do |choice| %>
+  <% if choice.completed %>
+    - <%= choice.unsubscription.kind %>
+  <% end %>
+<% end %>
+
+================================================================================

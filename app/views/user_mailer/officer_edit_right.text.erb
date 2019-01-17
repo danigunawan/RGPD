@@ -1,0 +1,30 @@
+Vous avez reçu une nouvelle demande de rectification de données provenant de <%= @user.name + " " + @user.surname %>.
+
+================================================================================
+
+
+Vous pouvez consulter cette requête à l'adresse <%= url_for @user %>
+
+
+Données de contact fournies par l'utilisateur:
+Prénom: <%= @user.name %> | Nom: <%= @user.surname %>
+Courriel: <%= @user.email %>
+Numéro de téléphone: <%= @user.phone %>
+Adresse: <%= @user.address %>
+Ville: <%= @user.city %> | Code postal: <%= @user.zipcode %>
+
+
+
+
+Voici les données soumises à modifications:
+
+---
+
+<% new = @user.modification %>
+Prénom: <%= new.name %> | Nom: <%= new.surname %>
+Courriel: <%= new.email %>
+Numéro de téléphone: <%= new.phone %>
+Adresse: <%= new.address %>
+Ville: <%= new.city %> | Code postal: <%= new.zipcode %>
+
+================================================================================
