@@ -6,6 +6,8 @@
 #
 
 development:
+  username: rails_user
+  password: P1nkfloyd
   adapter: postgresql
   database: my_database_development
   pool: 5
