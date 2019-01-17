@@ -1,9 +1,24 @@
 class UserMailer < ApplicationMailer
-  default from: 'rgpd-test.rgpd-test@madparis.fr'
+  default from: 'rgpd@madparis.fr'
 
-  def welcome_email
+  def access_right
     @user = params[:user]
-    @url = "http://example.com/login"
-    mail(to: @user.email, subject: 'Welcome to my Awesome Site')
+      mail(to: @user.mail, subject: "[FORMULAIRE-RGPD] Nouvelle demande de droit d'accès")
   end
+
+  def edit_right
+    @user = params[:user]
+      mail(to: @user.mail, subject: "[FORMULAIRE-RGPD] Nouvelle demande de rectification")
+  end
+
+  def limit_right
+    @user = params[:user]
+      mail(to: @user.mail, subject: "[FORMULAIRE-RGPD] Nouvelle demande de limitation de traitements")
+  end
+
+  def delete_right
+    @user = params[:user]
+      mail(to: @user.mail, subject: "[FORMULAIRE-RGPD] Nouvelle demande d'effacement'")
+  end
+  
 end
