@@ -26,10 +26,10 @@ class RequestsController < ApplicationController
   def limit_right_confirmation
 
     # MAIL THE DPO
-    OfficerMailer.with(user: @user).limit_right.deliver_later
+    OfficerMailer.with(user: @user).limit_right.deliver
 
     # MAIL THE USER
-    UserMailer.with(user: @user).limit_right.deliver_later
+    UserMailer.with(user: @user).limit_right.deliver
   end
 
   def delete_right

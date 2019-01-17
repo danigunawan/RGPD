@@ -16,7 +16,6 @@ class ModificationsController < ApplicationController
 
   # GET /modifications/new
   def new
-    puts @user
     @modification = Modification.new
   end
 
@@ -32,8 +31,12 @@ class ModificationsController < ApplicationController
     @user.modification = @modification
       if @modification.save
         redirect_to edit_right_requests_path
-        OfficerMailer.with(user: @user).edit_right.deliver_later
-        UserMailer.with(user: @user).edit_right.deliver_later
+
+        #Mail the DPO
+        OfficerMailer.with(user: @user).edit_right.deliver
+
+        #Mail the User
+        UserMailer.with(user: @user).edit_right.deliver
       else
         redirect_to new_user_modifications_path
       end
