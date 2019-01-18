@@ -19,6 +19,15 @@ fr:
         zipcode:                 "Code postal"
         created_at:              "Créé le"
         updated_at:              "Mis à jour le"
+      modification:
+        name:                    "Prénom"
+        surname:                 "Nom de famille"
+        email:                   "Courriel"
+        phone:                   "Numéro de téléphone portable"
+        address:                 "Adresse"
+        city:                    "Ville"
+        zipcode:                 "Code postal"
+        created_at:              "Créé le"
       officer:
         firstname:               "Prénom"
         lastname:                "Nom de famille"
