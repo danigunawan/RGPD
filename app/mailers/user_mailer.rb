@@ -3,22 +3,22 @@ class UserMailer < ApplicationMailer
 
   def access_right
     @user = params[:user]
-      mail(to: @user.mail, subject: "[FORMULAIRE-RGPD] Nouvelle demande de droit d'accès")
+      mail(to: @user.email, subject: "[FORMULAIRE-RGPD] Nouvelle demande de droit d'accès")
   end
 
   def edit_right
     @user = params[:user]
-      mail(to: @user.mail, subject: "[FORMULAIRE-RGPD] Nouvelle demande de rectification")
+      mail(to: @user.email, subject: "[FORMULAIRE-RGPD] Nouvelle demande de rectification")
   end
 
   def limit_right
     @user = params[:user]
-      mail(to: @user.mail, subject: "[FORMULAIRE-RGPD] Nouvelle demande de limitation de traitements")
+      mail(to: @user.email, subject: "[FORMULAIRE-RGPD] Nouvelle demande de limitation de traitements")
   end
 
   def delete_right
     @user = params[:user]
-      mail(to: @user.mail, subject: "[FORMULAIRE-RGPD] Nouvelle demande d'effacement'")
+      mail(to: @user.email, subject: "[FORMULAIRE-RGPD] Nouvelle demande d'effacement'")
   end
-  
+
 end

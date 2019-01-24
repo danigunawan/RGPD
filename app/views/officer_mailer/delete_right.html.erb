@@ -1,16 +1,33 @@
-<h1>Demande d'effacement: <%= @user.name + " " + @user.surname %>/h1>
+<h1>Demande d'effacement: <%= @user.name + " " + @user.surname %></h1>
 <p>
 Bonjour,
 </p>
 <p>
   Vous avez reçu une nouvelle demande d'effacement consultable à cette adresse:
-  <%= link_to @user %>
+  <%= link_to ("Ce lien", user_url(@user))%>
 </p>
 
 <p>Voici les informations fournies par l'utilisateur:</p>
 
-<p>Prénom: <%= @user.name %> | Nom: <%= @user.surname %></p>
-<p>Courriel: <%= @user.email %></p>
-<p>Adresse: <%= @user.address %></p>
-<p>Ville: <%= @user.city %> | <%= @user.zipcode %></p>
+<p>Prénom: <b><%= @user.name %></b> | Nom: <b><%= @user.surname %></b></p>
+<p>Courriel: <b><%= @user.email %></b></p>
+<% if !@user.phone.blank? %>
+<p>
+  Téléphone: <b><%= @user.phone %></b>
+</p>
+<% if !@user.address.blank? %>
+  <p>
+    Adresse: <b><%= @user.address %></b>
+  </p>
+<% end %>
+<% if !@user.city.blank? || !@user.zipcode.blank? %>
+  <p>
+    <% if @user.city %>
+    Ville: <b><%= @user.city %></b>  |
+    <%end%>
+    <% if !@user.zipcode.blank? %>
+    Code postal: <b><%= @user.zipcode %></b>
+    <%end%>
+  </p>
+<% end %>
 <hr>
