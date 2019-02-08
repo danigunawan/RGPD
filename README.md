@@ -1,17 +1,17 @@
-# README
+# README :closed_book:
 
 
 ## Description
 
  Ce projet est une plateforme de requêtes RGPD pleinement fonctionnel composé d'un front office et d'un back office.
 
- -> Qu'est-ce que le RGPD? https://www.cnil.fr/fr/rgpd-de-quoi-parle-t-on
+ :question: Qu'est-ce que le RGPD? https://www.cnil.fr/fr/rgpd-de-quoi-parle-t-on
 
 ---
 * Le front office est un formulaire pouvant receuillir les demandes des utilisateurs dans le cade du RGPD.
 * Le back office permet aux DPO de s'inscrire avec un token généré par l'admin de la plateforme puis ensutie de personnaliser le formulaire aux besoins de son entreprise. Pour ce faire j'ai utilisé différents models en CRUD permettant par exemple de donner à l'utilisateur le choix de se désinscrire d'une newsletter, de ne plus recevoir d'invitations, de promotions, etc...
 
-### Ce que j'ai appris
+### Ce que j'ai appris :man_student:
 
 * Mise en pratique de mes connaissances en Ruby on Rails
 * Découverte de SASS (SCSS)
@@ -20,7 +20,7 @@
 * 
 
 
-## README technique
+## README technique :gear:
 
 This README would normally document whatever steps are necessary to get the
 application up and running.
