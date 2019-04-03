@@ -14,16 +14,16 @@ $grey-bg: #F1F1F1;
 $sidebar-width: 200px;
 .sidenav {
 
-  height: auto; /* Full-height: remove this if you want "auto" height */
-  width: $sidebar-width; /* Set the width of the sidebar */
-  position: fixed; /* Fixed Sidebar (stay in place on scroll) */
-  z-index: 1; /* Stay on top */
-  top: 10%; /* Stay at the top */
-  left: 0;
-  background-color: #fff; /* Black */
+	height: auto; /* Full-height: remove this if you want "auto" height */
+	width: $sidebar-width; /* Set the width of the sidebar */
+	position: fixed; /* Fixed Sidebar (stay in place on scroll) */
+	z-index: 1; /* Stay on top */
+	top: 10%; /* Stay at the top */
+	left: 0;
+	background-color: #fff; /* Black */
 	border: 0px solid black;
-  overflow-x: hidden; /* Disable horizontal scroll */
-  padding: 10px;
+	overflow-x: hidden; /* Disable horizontal scroll */
+	padding: 10px;
 	border-radius: 0px;
 	margin-left: 20px;
 
@@ -56,30 +56,30 @@ $sidebar-width: 200px;
 /* The navigation menu links */
 .sidenav a {
 	background-color: $grey-bg;
-  padding: 6px 8px 6px 16px;
-  text-decoration: none;
+	padding: 6px 8px 6px 16px;
+	text-decoration: none;
 	text-transform: capitalize;
-  font-size: 1.2em;
-  color: #818181;
-  display: block;
+	font-size: 1.2em;
+	color: #818181;
+	display: block;
 }
 
 /* When you mouse over the navigation links, change their color */
 .sidenav a:hover {
-  color: #000;
+	color: #000;
 	text-decoration: none;
 }
 
 /* Style page content */
 .main {
-  margin-left: $sidebar-width; /* Same as the width of the sidebar */
-  padding: 0px 10px;
+	margin-left: $sidebar-width; /* Same as the width of the sidebar */
+	padding: 0px 10px;
 }
 
 /* On smaller screens, where height is less than 450px, change the style of the sidebar (less padding and a smaller font size) */
 @media screen and (max-height: 450px) {
-  .sidenav {padding-top: 15px;}
-  .sidenav a {font-size: 18px;}
+	.sidenav {padding-top: 15px;}
+	.sidenav a {font-size: 18px;}
 }
 
 
@@ -100,7 +100,6 @@ $sidebar-width: 200px;
 
 
 body {
-	background-color: $grey-bg !important;
 }
 
 .user_actions {
@@ -131,7 +130,7 @@ body {
 	font-weight: bold;
 	&:btn {
 		margin: 10px;
-		}
+	}
 }
 
 /* Used to stylize attribute titles inside user bubbles */
@@ -170,15 +169,15 @@ body {
 
 .checkbox {
 	margin-right: 30px;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  span {
-    margin-left: 5px;
-    font-weight: normal;
-  }
+	margin-top: 10px;
+	margin-bottom: 10px;
+	span {
+		margin-left: 5px;
+		font-weight: normal;
+	}
 }
 
 #session_remember_me {
-  width: auto;
-  margin-left: 0;
+	width: auto;
+	margin-left: 0;
 }
