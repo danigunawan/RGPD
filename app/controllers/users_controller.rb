@@ -29,15 +29,14 @@ class UsersController < ApplicationController
       #if @user.request_id.nil? == true
       #  flash.now[:danger] = "Veuillez préciser le type de la requête."
       if verify_recaptcha(model: @user) && @user.save
-        #        UserMailer.with(user: @user).welcome_email.deliver_later
         case @user.request_id
         when 1
           redirect_to access_right_requests_path
           #MAIL THE DPO
-#          OfficerMailer.with(user: @user).access_right.deliver
+          OfficerMailer.with(user: @user).access_right.deliver
 
           #MAIL THE USER
-#          UserMailer.with(user: @user).access_right.deliver
+          UserMailer.with(user: @user).access_right.deliver
         when 2
           redirect_to new_user_modifications_path(@user)
         when 3
@@ -47,10 +46,10 @@ class UsersController < ApplicationController
           redirect_to delete_right_requests_path
 
           #MAIL THE DPO
-#          OfficerMailer.with(user: @user).delete_right.deliver
+          OfficerMailer.with(user: @user).delete_right.deliver
 
           #MAIL THE USER
-#          UserMailer.with(user: @user).delete_right.deliver
+          UserMailer.with(user: @user).delete_right.deliver
         else
           flash[:danger] = "Veuillez préciser le type de la requête."
           redirect_to new_user_path

@@ -33,10 +33,10 @@ class ModificationsController < ApplicationController
         redirect_to edit_right_requests_path
 
         #Mail the DPO
-#        OfficerMailer.with(user: @user).edit_right.deliver
+        OfficerMailer.with(user: @user).edit_right.deliver
 
         #Mail the User
-#        UserMailer.with(user: @user).edit_right.deliver
+        UserMailer.with(user: @user).edit_right.deliver
       else
         redirect_to new_user_modifications_path
       end
