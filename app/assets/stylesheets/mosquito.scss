@@ -1,0 +1,45 @@
+body {
+	background-color: #FF6666 !important;
+	color: white;
+}
+#page-title:before {
+	content: "";
+	display: block;
+	width: 61px;
+	height: 96px;
+	margin-top: 30px;
+	margin-bottom: 30px;
+	margin-left: auto;
+	margin-right: auto;
+	text-align: center;
+	background: url(https://madparis.fr/squelettes-2017/img/mad-blanc.svg) center center no-repeat;
+}
+h1 {
+	font-size: 1.8rem;
+}
+h2 {
+	font-size: 1.4rem;
+	font-weight: normal;
+	margin-bottom: 30px;
+}
+h3 {
+	font-size: 1.5rem;
+}
+hr {
+	display: none;
+}	
+.mandatory, .facultative, .radio, .former-data, .informative, .rc-anchor {
+	color: black;
+	border-radius: 0;
+	font-size: 90%;
+}
+
+.btn-primary {
+	margin-top: 30px;
+	-moz-appearance: none;
+	-webkit-appearance: none;
+	border: 0;
+	background-color: black;
+	padding: 5px 30px;
+	border-radius: 2rem;
+}
