@@ -12,12 +12,9 @@
 
 ActiveRecord::Schema.define(version: 2019_01_12_161534) do
 
-  # These are extensions that must be enabled in order to support this database
-  enable_extension "plpgsql"
-
   create_table "choices", force: :cascade do |t|
-    t.bigint "user_id"
-    t.bigint "unsubscription_id"
+    t.integer "user_id"
+    t.integer "unsubscription_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.boolean "completed", default: false
@@ -37,7 +34,7 @@ ActiveRecord::Schema.define(version: 2019_01_12_161534) do
     t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.index ["user_id"], name: "index_modifications_on_user_id"
   end
 
@@ -68,7 +65,7 @@ ActiveRecord::Schema.define(version: 2019_01_12_161534) do
     t.string "kind"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "user_id"
+    t.integer "user_id"
     t.boolean "reason_specific"
     t.index ["user_id"], name: "index_unsubscriptions_on_user_id"
   end
@@ -83,17 +80,11 @@ ActiveRecord::Schema.define(version: 2019_01_12_161534) do
     t.string "zipcode"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.bigint "unsubscription_id"
-    t.bigint "request_id"
+    t.integer "unsubscription_id"
+    t.integer "request_id"
     t.boolean "archived"
     t.index ["request_id"], name: "index_users_on_request_id"
     t.index ["unsubscription_id"], name: "index_users_on_unsubscription_id"
   end
 
-  add_foreign_key "choices", "unsubscriptions"
-  add_foreign_key "choices", "users"
-  add_foreign_key "modifications", "users"
-  add_foreign_key "unsubscriptions", "users"
-  add_foreign_key "users", "requests"
-  add_foreign_key "users", "unsubscriptions"
 end
