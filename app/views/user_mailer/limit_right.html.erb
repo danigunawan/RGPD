@@ -15,8 +15,9 @@
     <% limits = @user.choices %>
     <ul>
     <% limits.each do |limit| %>
-    <% if limit.completed %>
-    <li><%= limit.unsubscription.kind %></li>
+      <% if limit.completed %>
+        <li><%= limit.unsubscription.kind %></li>
+      <% end %>
     <% end %>
     </ul>
 <hr>
