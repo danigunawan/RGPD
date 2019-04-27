@@ -89,6 +89,7 @@ class RequestsController < ApplicationController
     # Use callbacks to share common setup or constraints between actions.
     def set_request_and_user
       @user = User.find(params[:user]) if params[:user]
+      @user = User.find(params[:user_id]) if params[:user_id]
       @request = Request.find(params[:id]) if params[:id]
     end
 
