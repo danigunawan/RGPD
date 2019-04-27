@@ -1,5 +1,5 @@
 class UserMailer < ApplicationMailer
-  default from: 'contact@yorickjacquin.com'
+  default from: 'yorickjacquin@gmail.com'
 
   def access_right
     @user = params[:user]
