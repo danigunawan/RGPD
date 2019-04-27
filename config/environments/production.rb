@@ -13,16 +13,16 @@ Rails.application.configure do
 
   # Mailer config
   # Don't care if the mailer can't send.
-  config.action_mailer.default_url_options = { host: "rgpd.madparis.fr" }
+  config.action_mailer.default_url_options = { host: "rgpd.yorickjacquin.com" }
   config.action_mailer.raise_delivery_errors = true
   config.action_mailer.perform_deliveries = true
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'mail.madparis.fr',
+    address:              'smtp.gmail.com',
     port:                 587,
-    user_name:            ENV['rgpd_username'],
-    password:             ENV['rgpd_password'],
+    user_name:            ENV['RGPD_USERNAME'],
+    password:             ENV['RGPD_PASSWORD'],
     authentication:       'plain',
     enable_starttls_auto: true }
 
@@ -38,8 +38,8 @@ Rails.application.configure do
   # Apache or NGINX already handles this.
   config.public_file_server.enabled = ENV['RAILS_SERVE_STATIC_FILES'].present?
 
+  config.assets.js_compressor = Uglifier.new(harmony: true)
   # Compress JavaScripts and CSS.
-  config.assets.js_compressor = :uglifier
   # config.assets.css_compressor = :sass
 
   # Do not fallback to assets pipeline if a precompiled asset is missed.
