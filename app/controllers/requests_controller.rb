@@ -1,5 +1,5 @@
 class RequestsController < ApplicationController
-  before_action :set_request_and_user, only: [:show, :edit, :update, :destroy]
+  before_action :set_request_and_user
   skip_before_action :login_required,
     only: [:access_right, :edit_right, :limit_right_confirmation, :delete_right, :limit_right]
 
