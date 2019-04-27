@@ -1,6 +1,7 @@
 Rails.application.routes.draw do
   root 'users#new'
-
+  # authentication route for the external API
+  post 'authenticate', to: 'authentication#authenticate'
 
   get 'confirmations/show'
   get 'confirmation/show'
