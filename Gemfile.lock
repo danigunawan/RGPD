@@ -80,7 +80,6 @@ GEM
       execjs
     coffee-script-source (1.12.2)
     concurrent-ruby (1.1.5)
-    cowsay (0.3.0)
     crass (1.0.4)
     erubi (1.8.0)
     execjs (2.7.0)
@@ -216,7 +215,6 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-  cowsay
   figaro
   jbuilder (~> 2.5)
   jquery-rails

@@ -6,8 +6,6 @@ ruby '2.5.1'
 
 # Use Recaptcha for captcha verficiation
 gem "recaptcha"
-# Use cowsay for ASCII art, testing
-gem 'cowsay'
 # Use figaro to store sensitive info like credentials in a yaml file
 gem 'figaro'
 # Use ActiveModel has_secure_password
