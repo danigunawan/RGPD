@@ -73,7 +73,7 @@ class UsersController < ApplicationController
       if any_unsub? && @user.update(user_updatable_params)
         # In case of Request #3 (unsubscriptions)
         # redirect_to confirmation for this request.
-        redirect_to limit_right_confirmation_requests_path
+        redirect_to limit_right_confirmation_requests_path(user: @user)
       else
         #flash[:danger] = "Erreur."
         if !any_unsub?

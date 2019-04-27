@@ -16,7 +16,7 @@ class OfficerMailer < ApplicationMailer
   end
 
   def limit_right
-    @user = params[:user_id]
+    @user = params[:user]
     Officer.all.each do |officer|
       mail(to: officer.email, subject: "[FORMULAIRE-RGPD] Nouvelle demande de limitation de traitements")
     end
