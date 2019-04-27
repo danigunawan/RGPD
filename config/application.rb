@@ -10,7 +10,7 @@ module Rgpd
   class Application < Rails::Application
     # Initialize configuration defaults for originally generated Rails version.
     config.load_defaults 5.2
-
+    config.autoload_paths << Rails.root.join('lib')
     config.logger = Logger.new(STDOUT)
     #Set default language to French
     config.i18n.load_path += Dir[Rails.root.join('my', 'locales', '*.{rb,yml}').to_s]

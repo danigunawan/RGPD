@@ -6,6 +6,10 @@ ruby '2.5.1'
 
 # Use Recaptcha for captcha verficiation
 gem "recaptcha"
+# Use jwt for the csrf token for mobile app
+gem 'jwt'
+# Use simple_command to facilitate creation of services
+gem 'simple_command'
 # Use figaro to store sensitive info like credentials in a yaml file
 gem 'figaro'
 # Use ActiveModel has_secure_password
