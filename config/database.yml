@@ -24,6 +24,6 @@ test:
 
 production:
   <<: *default
-  username: rails
-  password: P1nkfloyd
+  username: ENV['DB_USER']
+  password: ENV['DB_PASSWORD']
   database: my_database_production

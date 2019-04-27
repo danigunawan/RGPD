@@ -19,7 +19,7 @@ Rails.application.configure do
   config.action_mailer.perform_caching = false
   config.action_mailer.delivery_method = :smtp
   config.action_mailer.smtp_settings = {
-    address:              'mail.madparis.fr',
+    address:              'pro1.mail.ovh.net',
     port:                 587,
     user_name:            ENV['rgpd_username'],
     password:             ENV['rgpd_password'],
