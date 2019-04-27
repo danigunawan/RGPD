@@ -10,8 +10,9 @@ Votre demande de limitation de traitement de vos données
 
     <% limits = @user.choices %>
     <% limits.each do |limit| %>
-    <% if limit.completed %>
-    * <%= limit.unsubscription.kind %>
+      <% if limit.completed %>
+        * <%= limit.unsubscription.kind %>
+      <% end %>
     <% end %>
 
 ================================================================================
