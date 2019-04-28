@@ -14,7 +14,13 @@ Rails.application.routes.draw do
       get 'limit_right_confirmation'
     end
   end
-
+namespace :api, defaults: {format: 'json'} do
+  namespace :v1 do
+    resources :users
+    get 'cemetary', to: "users#cemetary", as: 'cemetary'
+    post 'login', to: 'authentication#authenticate'
+  end
+end
   resources :officers
   resources :sessions, only: [:new, :create, :destroy]
 
@@ -26,8 +32,8 @@ Rails.application.routes.draw do
     #post "unsubscriptions/new"
 
   resources :users do
-      resource :modifications
+    resource :modifications
   end
-    get 'cemetary', to: "users#cemetary", as: 'cemetary'
+  get 'cemetary', to: "users#cemetary", as: 'cemetary'
   get "users/archive/:id", to: "users#archive", as: :users_archive
 end

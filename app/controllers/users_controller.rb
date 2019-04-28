@@ -88,7 +88,7 @@ class UsersController < ApplicationController
     def cemetary
       unfiltered_users = User.search(params[:term])
       @users = unfiltered_users.select do | user | user.archived == true end
-      end
+    end
 
       def archive
         if @user.archived == true

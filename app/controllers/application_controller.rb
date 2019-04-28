@@ -1,6 +1,7 @@
 class ApplicationController < ActionController::Base
   helper_method :current_officer
   before_action :login_required, :set_locale
+
   include SessionsHelper
 #Looks for a logged in user in the session and loads it.
 # If no officer found, returns nil
@@ -11,7 +12,7 @@ class ApplicationController < ActionController::Base
       officer = Officer.find(officer_id)
       if officer && officer.authenticated?(cookies[:remember_token])
         log_in officer
-        @current_officer= officer
+        @current_officer = officer
       end
     end
   end
