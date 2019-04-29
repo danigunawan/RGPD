@@ -1,29 +1,23 @@
 <% @years = User.select("created_at").map{ |item| item.created_at.year }.uniq %>
-
-<div class="row">
-  <div class="col">
-    Année
-  </div>
-  <% Request.all.each do |request| %>
-  <div class="col">
-    <%= request.title %>
-  </div>
-  <% end %>
-  <div class="col">
-    Total
-  </div>
-
+<div class="sheet">
+  <table>
+    <tr>
+      <th scpoe = "col">Année</th>
+      <% Request.all.each do |request| %>
+      <th scope="col"><%=request.title%></th>
+      <% end %>
+      <th scope="col">Total</th>
+    </tr>
+    <tbody>
+      <%= @years.each do |year| %>
+      <tr>
+        <th scope="row"><%= year %></th>
+        <% Request.all.each do |request| %>
+          <td><%= request.users.where('extract(year from created_at) = ?', year).count %></td>
+        <% end %>
+        <td><%= User.where('extract(year from created_at) = ?', year).count %></td>
+      </tr>
+      <% end %>
+    </tbody>
+  </table>
 </div>
-
-<%= @years.each do |year| %>
-<div class="row">
-  <% Request.all.each do |request| %>
-  <div class="col">
-    <%= request.users.where('extract(year from created_at) = ?', year).count %>
-  </div>
-  <% end%>
-  <div class="col">
-    <%= User.where('extract(year from created_at) = ?', year).count %>
-  </div>
-</div>
-<% end %>
