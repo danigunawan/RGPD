@@ -20,7 +20,7 @@
         </tr>
         <tr>
         <th scope="row">Total</th>
-        <% Request.all do | request | %>
+        <% Request.all.each do | request | %>
           <td><%= Request.users.count%></td>
         <% end %>
         <td><%= Request.all.count %></td>
