@@ -17,6 +17,8 @@
           <td><%= request.users.where('extract(year from created_at) = ?', year).count %></td>
         <% end %>
         <td><%= User.where('extract(year from created_at) = ?', year).count %></td>
+        </tr>
+        <tr>
         <th scope="row">Total</th>
         <% Request.all do | request | %>
           <td><%= Request.where(title: request.title).count%></td>
