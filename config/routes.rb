@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   root 'users#new'
   # authentication route for the external API
   post 'authenticate', to: 'authentication#authenticate'
-
+  get 'stats/show'
   get 'confirmations/show'
   get 'confirmation/show'
   resources :requests do
@@ -18,7 +18,7 @@ namespace :api, defaults: {format: 'json'} do
   namespace :v1 do
     resources :users
     get 'cemetary', to: "users#cemetary", as: 'cemetary'
-    post 'archive', to: "users#archive", as: "archive" 
+    post 'archive', to: "users#archive", as: "archive"
     post 'login', to: 'authentication#authenticate'
   end
 end
