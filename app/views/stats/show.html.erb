@@ -18,16 +18,17 @@
         <% end %>
         <td><%= User.where('extract(year from created_at) = ?', year).count %></td>
         </tr>
-        <tr>
-        <th scope="row">Total</th>
 
-        <% Request.all.each do | request | %>
-          <% @total = request.users.count + @total %>
-          <td><%= request.users.count%></td>
-        <% end %>
-        <td><%= @total %></td>
-      </tr>
       <% end %>
+      <tr>
+      <th scope="row">Total</th>
+
+      <% Request.all.each do | request | %>
+        <% @total = request.users.count + @total %>
+        <td><%= request.users.count%></td>
+      <% end %>
+      <td><%= @total %></td>
+    </tr>
     </tbody>
   </table>
 </div>
