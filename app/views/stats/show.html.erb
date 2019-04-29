@@ -10,7 +10,7 @@
       <th scope="col">Total</th>
     </tr>
     <tbody>
-      <%= years.each do |year| %>
+      <% years.each do |year| %>
       <tr>
         <th scope="row"><%= year %></th>
         <% Request.all.each do |request| %>
@@ -18,7 +18,7 @@
         <% end %>
         <td><%= User.where('extract(year from created_at) = ?', year).count %></td>
         <th scope="row">Total</th>
-        <%= Request.all do | request | %>
+        <% Request.all do | request | %>
           <td><%= Request.where(title: request.title).count%></td>
           <td><%= Request.all.count %></td>
         <% end %>
