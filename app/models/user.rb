@@ -34,9 +34,9 @@ private
 
   def self.search(term)
     if term
-      where('surname LIKE ?', "%#{term.capitalize}%").order('id DESC')
+      where('surname LIKE ?', "%#{term.capitalize}%").order('updated_at DESC')
     else
-      order('id DESC')
+      order('updated_at DESC')
     end
   end
 

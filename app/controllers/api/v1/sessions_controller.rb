@@ -14,11 +14,8 @@ skip_before_action :verify_authenticity_token
         if @officer && @officer.authenticate(params[:password])
           log_in(@officer)
           remember @officer
-          flash[:success] = "Bienvenue!"
-          redirect_to officers_path
         else
-          flash.now[:danger] = "Courriel ou mot de passe invalide."
-          render :new
+          render :json {error: "wrong login/password"}
         end
       end
 

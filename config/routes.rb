@@ -18,6 +18,7 @@ namespace :api, defaults: {format: 'json'} do
   namespace :v1 do
     resources :users
     get 'cemetary', to: "users#cemetary", as: 'cemetary'
+    post 'archive', to: "users#archive", as: "archive" 
     post 'login', to: 'authentication#authenticate'
   end
 end
