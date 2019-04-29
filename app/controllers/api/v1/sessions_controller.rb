@@ -15,7 +15,7 @@ skip_before_action :verify_authenticity_token
           log_in(@officer)
           remember @officer
         else
-          render :json {error: "wrong login/password"}
+          render json: {error: "wrong login/password"}
         end
       end
 
