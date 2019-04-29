@@ -22,8 +22,8 @@
         <th scope="row">Total</th>
         <% Request.all do | request | %>
           <td><%= Request.where(title: request.title).count%></td>
-          <td><%= Request.all.count %></td>
         <% end %>
+        <td><%= Request.all.count %></td>
       </tr>
       <% end %>
     </tbody>
