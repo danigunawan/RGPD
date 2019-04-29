@@ -1,6 +1,6 @@
 <% years = User.select("created_at").map{ |item| item.created_at.year }.uniq %>
 <div class="informative">
-  <table>
+  <table border="1">
     <caption>Ensemble des requêtes par année</caption>
     <tr>
       <th scope = "col">Année</th>
