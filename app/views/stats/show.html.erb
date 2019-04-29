@@ -1,6 +1,7 @@
-<% @years = User.select("created_at").map{ |item| item.created_at.year }.uniq %>
+<% years = User.select("created_at").map{ |item| item.created_at.year }.uniq %>
 <div class="informative">
   <table>
+    <caption>Ensemble des requêtes par année</caption>
     <tr>
       <th scpoe = "col">Année</th>
       <% Request.all.each do |request| %>
@@ -9,7 +10,7 @@
       <th scope="col">Total</th>
     </tr>
     <tbody>
-      <%= @years.each do |year| %>
+      <%= years.each do |year| %>
       <tr>
         <th scope="row"><%= year %></th>
         <% Request.all.each do |request| %>
