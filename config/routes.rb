@@ -20,7 +20,7 @@ namespace :api, defaults: {format: 'json'} do
     get 'cemetary', to: "users#cemetary", as: 'cemetary'
     post 'archive', to: "users#archive", as: "archive"
     post 'login', to: 'authentication#authenticate'
-    delete "delete", to:"users#destroy", as:"delete"
+    delete "delete", to: "users#destroy", as: "delete"
   end
 end
   resources :officers
