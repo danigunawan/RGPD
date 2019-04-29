@@ -28,6 +28,7 @@ module Api
       end
 
       def destroy
+        puts "This is @user.id: #{@user.id}"
         @user.destroy
       end
 
@@ -35,6 +36,7 @@ module Api
 
       def set_user
         @user = User.find(params['id'])
+        puts "This is params['id']: #{params['id']}"
       end
     end
   end
