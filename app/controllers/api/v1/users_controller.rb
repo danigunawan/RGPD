@@ -27,6 +27,10 @@ module Api
         end
       end
 
+      def destroy
+        @user.destroy
+      end
+
       private
 
       def set_user
