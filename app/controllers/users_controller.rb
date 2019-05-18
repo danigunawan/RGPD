@@ -41,6 +41,7 @@ class UsersController < ApplicationController
           redirect_to new_user_modifications_path(@user)
         when 3
           redirect_to  limit_right_requests_path(user_id: @user.id)
+          byebug
           #Mail sent through requests_controller
         when 4
           redirect_to delete_right_requests_path
