@@ -23,7 +23,6 @@ class RequestsController < ApplicationController
   end
 
   def limit_right_confirmation
-    byebug
     # MAIL THE DPO
     OfficerMailer.with(user: @user).limit_right.deliver
 

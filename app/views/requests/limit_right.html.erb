@@ -38,15 +38,14 @@
 
 
   <%= form_for @unsubscription, class:"form-inline" do |f| %>
+    <%= hidden_field_tag :user_id, @user.id %>
     <%= f.label :kind, "Autres" %>
     <%= f.text_field :kind, class:"form-control", required: true %>
     <%= f.hidden_field :reason_specific, value: true %>
-    <%= hidden_field_tag :user_id, @user.id %>
 
       <%= f.submit "Valider", class: "btn btn-primary submit"%>
       <% end %>
   </div>
-
 
 
 <%= link_to "Revenir au formulaire", root_path, class:"btn btn-primary",

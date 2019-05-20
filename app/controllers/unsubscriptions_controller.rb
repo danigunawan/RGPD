@@ -32,7 +32,7 @@ class UnsubscriptionsController < ApplicationController
         if is_specific
           @unsubscription.choices.last.specific = true
           @unsubscription.save
-          format.html { redirect_to limit_right_confirmation_requests_path }
+          format.html { redirect_to limit_right_confirmation_requests_path(user_id: params[:user_id]) }
       else
         flash[:success] = "Le traitement a bien été créé!"
         format.html { redirect_to @unsubscription }
@@ -65,7 +65,7 @@ class UnsubscriptionsController < ApplicationController
   def destroy
     @unsubscription.destroy
     respond_to do |format|
-      flash[:succes] = "Le traitement a bien été supprimé!"
+      flash[:success] = "Le traitement a bien été supprimé!"
       format.html { redirect_to unsubscriptions_url }
       format.json { head :no_content }
     end
