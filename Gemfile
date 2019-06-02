@@ -4,6 +4,9 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
 
+gem 'rails-erd'
+# Use graphviz for sql dump
+gem "ruby-graphviz"
 # Use Recaptcha for captcha verficiation
 gem "recaptcha"
 # Use jwt for the csrf token for mobile app
