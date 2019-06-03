@@ -8,11 +8,19 @@ SET xmloption = content;
 SET client_min_messages = warning;
 SET row_security = off;
 
+
+
+
+
 --
 -- Name: plpgsql; Type: EXTENSION; Schema: -; Owner: -
 --
 
 CREATE EXTENSION IF NOT EXISTS plpgsql WITH SCHEMA pg_catalog;
+
+
+
+
 
 
 --
@@ -26,6 +34,10 @@ SET default_tablespace = '';
 
 SET default_with_oids = false;
 
+
+
+
+
 --
 -- Name: ar_internal_metadata; Type: TABLE; Schema: public; Owner: -
 --
@@ -36,6 +48,10 @@ CREATE TABLE public.ar_internal_metadata (
     created_at timestamp without time zone NOT NULL,
     updated_at timestamp without time zone NOT NULL
 );
+
+
+
+
 
 
 --
@@ -53,6 +69,10 @@ CREATE TABLE public.choices (
 );
 
 
+
+
+
+
 --
 -- Name: choices_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
@@ -65,11 +85,19 @@ CREATE SEQUENCE public.choices_id_seq
     CACHE 1;
 
 
+
+
+
+
 --
 -- Name: choices_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.choices_id_seq OWNED BY public.choices.id;
+
+
+
+
 
 
 --
@@ -92,6 +120,10 @@ CREATE TABLE public.modifications (
 );
 
 
+
+
+
+
 --
 -- Name: modifications_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
@@ -104,11 +136,18 @@ CREATE SEQUENCE public.modifications_id_seq
     CACHE 1;
 
 
+
+
+
+
 --
 -- Name: modifications_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.modifications_id_seq OWNED BY public.modifications.id;
+
+
+
 
 
 --
@@ -127,6 +166,10 @@ CREATE TABLE public.officers (
 );
 
 
+
+
+
+
 --
 -- Name: officers_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
@@ -139,11 +182,19 @@ CREATE SEQUENCE public.officers_id_seq
     CACHE 1;
 
 
+
+
+
+
 --
 -- Name: officers_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.officers_id_seq OWNED BY public.officers.id;
+
+
+
+
 
 
 --
@@ -155,6 +206,10 @@ CREATE TABLE public.requests (
     title character varying,
     selected boolean
 );
+
+
+
+
 
 
 --
@@ -169,11 +224,19 @@ CREATE SEQUENCE public.requests_id_seq
     CACHE 1;
 
 
+
+
+
+
 --
 -- Name: requests_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.requests_id_seq OWNED BY public.requests.id;
+
+
+
+
 
 
 --
@@ -183,6 +246,10 @@ ALTER SEQUENCE public.requests_id_seq OWNED BY public.requests.id;
 CREATE TABLE public.schema_migrations (
     version character varying NOT NULL
 );
+
+
+
+
 
 
 --
@@ -198,6 +265,10 @@ CREATE TABLE public.tokens (
 );
 
 
+
+
+
+
 --
 -- Name: tokens_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
@@ -210,11 +281,19 @@ CREATE SEQUENCE public.tokens_id_seq
     CACHE 1;
 
 
+
+
+
+
 --
 -- Name: tokens_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.tokens_id_seq OWNED BY public.tokens.id;
+
+
+
+
 
 
 --
@@ -231,6 +310,10 @@ CREATE TABLE public.unsubscriptions (
 );
 
 
+
+
+
+
 --
 -- Name: unsubscriptions_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
@@ -243,11 +326,19 @@ CREATE SEQUENCE public.unsubscriptions_id_seq
     CACHE 1;
 
 
+
+
+
+
 --
 -- Name: unsubscriptions_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
 
 ALTER SEQUENCE public.unsubscriptions_id_seq OWNED BY public.unsubscriptions.id;
+
+
+
+
 
 
 --
@@ -271,6 +362,10 @@ CREATE TABLE public.users (
 );
 
 
+
+
+
+
 --
 -- Name: users_id_seq; Type: SEQUENCE; Schema: public; Owner: -
 --
@@ -283,6 +378,10 @@ CREATE SEQUENCE public.users_id_seq
     CACHE 1;
 
 
+
+
+
+
 --
 -- Name: users_id_seq; Type: SEQUENCE OWNED BY; Schema: public; Owner: -
 --
@@ -290,53 +389,92 @@ CREATE SEQUENCE public.users_id_seq
 ALTER SEQUENCE public.users_id_seq OWNED BY public.users.id;
 
 
---
--- Name: id; Type: DEFAULT; Schema: public; Owner: -
---
 
-ALTER TABLE ONLY public.choices ALTER COLUMN id SET DEFAULT nextval('public.choices_id_seq'::regclass);
+
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.modifications ALTER COLUMN id SET DEFAULT nextval('public.modifications_id_seq'::regclass);
+ALTER TABLE ONLY public.choices ALTER COLUMN id
+SET DEFAULT nextval('public.choices_id_seq'::regclass);
+
+
+
+
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.officers ALTER COLUMN id SET DEFAULT nextval('public.officers_id_seq'::regclass);
+ALTER TABLE ONLY public.modifications ALTER COLUMN id
+SET DEFAULT nextval('public.modifications_id_seq'::regclass);
+
+
+
+
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.requests ALTER COLUMN id SET DEFAULT nextval('public.requests_id_seq'::regclass);
+ALTER TABLE ONLY public.officers ALTER COLUMN id
+SET DEFAULT nextval('public.officers_id_seq'::regclass);
+
+
+
+
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.tokens ALTER COLUMN id SET DEFAULT nextval('public.tokens_id_seq'::regclass);
+ALTER TABLE ONLY public.requests ALTER COLUMN id
+SET DEFAULT nextval('public.requests_id_seq'::regclass);
+
+
+
+
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.unsubscriptions ALTER COLUMN id SET DEFAULT nextval('public.unsubscriptions_id_seq'::regclass);
+ALTER TABLE ONLY public.tokens ALTER COLUMN id
+SET DEFAULT nextval('public.tokens_id_seq'::regclass);
+
+
+
+
 
 
 --
 -- Name: id; Type: DEFAULT; Schema: public; Owner: -
 --
 
-ALTER TABLE ONLY public.users ALTER COLUMN id SET DEFAULT nextval('public.users_id_seq'::regclass);
+ALTER TABLE ONLY public.unsubscriptions ALTER COLUMN id
+SET DEFAULT nextval('public.unsubscriptions_id_seq'::regclass);
+
+
+
+
+
+
+--
+-- Name: id; Type: DEFAULT; Schema: public; Owner: -
+--
+
+ALTER TABLE ONLY public.users ALTER COLUMN id
+SET DEFAULT nextval('public.users_id_seq'::regclass);
+
+
+
+
 
 
 --
@@ -347,12 +485,19 @@ ALTER TABLE ONLY public.ar_internal_metadata
     ADD CONSTRAINT ar_internal_metadata_pkey PRIMARY KEY (key);
 
 
+
+
+
+
 --
 -- Name: choices_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.choices
     ADD CONSTRAINT choices_pkey PRIMARY KEY (id);
+
+
+
 
 
 --
@@ -363,12 +508,19 @@ ALTER TABLE ONLY public.modifications
     ADD CONSTRAINT modifications_pkey PRIMARY KEY (id);
 
 
+
+
+
 --
 -- Name: officers_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.officers
     ADD CONSTRAINT officers_pkey PRIMARY KEY (id);
+
+
+
+
 
 
 --
@@ -379,12 +531,20 @@ ALTER TABLE ONLY public.requests
     ADD CONSTRAINT requests_pkey PRIMARY KEY (id);
 
 
+
+
+
+
 --
 -- Name: schema_migrations_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.schema_migrations
     ADD CONSTRAINT schema_migrations_pkey PRIMARY KEY (version);
+
+
+
+
 
 
 --
@@ -395,12 +555,22 @@ ALTER TABLE ONLY public.tokens
     ADD CONSTRAINT tokens_pkey PRIMARY KEY (id);
 
 
+
+
+
+
+
 --
 -- Name: unsubscriptions_pkey; Type: CONSTRAINT; Schema: public; Owner: -
 --
 
 ALTER TABLE ONLY public.unsubscriptions
     ADD CONSTRAINT unsubscriptions_pkey PRIMARY KEY (id);
+
+
+
+
+
 
 
 --
@@ -411,53 +581,108 @@ ALTER TABLE ONLY public.users
     ADD CONSTRAINT users_pkey PRIMARY KEY (id);
 
 
+
+
+
+
+
 --
 -- Name: index_choices_on_unsubscription_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_choices_on_unsubscription_id ON public.choices USING btree (unsubscription_id);
+CREATE INDEX index_choices_on_unsubscription_id
+ON public.choices
+USING btree (unsubscription_id);
+
+
+
+
+
 
 
 --
 -- Name: index_choices_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_choices_on_user_id ON public.choices USING btree (user_id);
+CREATE INDEX index_choices_on_user_id
+ON public.choices
+USING btree (user_id);
+
+
+
+
 
 
 --
 -- Name: index_modifications_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_modifications_on_user_id ON public.modifications USING btree (user_id);
+CREATE INDEX index_modifications_on_user_id
+ON public.modifications
+USING btree (user_id);
+
+
+
 
 
 --
 -- Name: index_officers_on_email; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE UNIQUE INDEX index_officers_on_email ON public.officers USING btree (email);
+CREATE UNIQUE INDEX index_officers_on_email
+ON public.officers
+USING btree (email);
+
+
+
+
+
+
 
 
 --
 -- Name: index_unsubscriptions_on_user_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_unsubscriptions_on_user_id ON public.unsubscriptions USING btree (user_id);
+CREATE INDEX index_unsubscriptions_on_user_id
+ON public.unsubscriptions
+USING btree (user_id);
+
+
+
+
+
+
 
 
 --
 -- Name: index_users_on_request_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_users_on_request_id ON public.users USING btree (request_id);
+CREATE INDEX index_users_on_request_id
+ON public.users
+USING btree (request_id);
+
+
+
+
+
+
 
 
 --
 -- Name: index_users_on_unsubscription_id; Type: INDEX; Schema: public; Owner: -
 --
 
-CREATE INDEX index_users_on_unsubscription_id ON public.users USING btree (unsubscription_id);
+CREATE INDEX index_users_on_unsubscription_id
+ON public.users
+USING btree (unsubscription_id);
+
+
+
+
+
+
 
 
 --
@@ -465,7 +690,12 @@ CREATE INDEX index_users_on_unsubscription_id ON public.users USING btree (unsub
 --
 
 ALTER TABLE ONLY public.choices
-    ADD CONSTRAINT fk_rails_138b4f93cd FOREIGN KEY (user_id) REFERENCES public.users(id);
+    ADD CONSTRAINT fk_rails_138b4f93cd
+    FOREIGN KEY (user_id)
+    REFERENCES public.users(id);
+
+
+
 
 
 --
@@ -473,7 +703,12 @@ ALTER TABLE ONLY public.choices
 --
 
 ALTER TABLE ONLY public.users
-    ADD CONSTRAINT fk_rails_27767b95cc FOREIGN KEY (request_id) REFERENCES public.requests(id);
+    ADD CONSTRAINT fk_rails_27767b95cc
+    FOREIGN KEY (request_id)
+    REFERENCES public.requests(id);
+
+
+
 
 
 --
@@ -481,7 +716,12 @@ ALTER TABLE ONLY public.users
 --
 
 ALTER TABLE ONLY public.choices
-    ADD CONSTRAINT fk_rails_64277d03f1 FOREIGN KEY (unsubscription_id) REFERENCES public.unsubscriptions(id);
+    ADD CONSTRAINT fk_rails_64277d03f1
+    FOREIGN KEY (unsubscription_id)
+    REFERENCES public.unsubscriptions(id);
+
+
+
 
 
 --
@@ -489,7 +729,12 @@ ALTER TABLE ONLY public.choices
 --
 
 ALTER TABLE ONLY public.unsubscriptions
-    ADD CONSTRAINT fk_rails_bafcccfdbe FOREIGN KEY (user_id) REFERENCES public.users(id);
+    ADD CONSTRAINT fk_rails_bafcccfdbe
+    FOREIGN KEY (user_id)
+    REFERENCES public.users(id);
+
+
+
 
 
 --
@@ -497,7 +742,12 @@ ALTER TABLE ONLY public.unsubscriptions
 --
 
 ALTER TABLE ONLY public.modifications
-    ADD CONSTRAINT fk_rails_c409534eed FOREIGN KEY (user_id) REFERENCES public.users(id);
+    ADD CONSTRAINT fk_rails_c409534eed
+    FOREIGN KEY (user_id)
+    REFERENCES public.users(id);
+
+
+
 
 
 --
@@ -505,7 +755,12 @@ ALTER TABLE ONLY public.modifications
 --
 
 ALTER TABLE ONLY public.users
-    ADD CONSTRAINT fk_rails_d0fd6f84ac FOREIGN KEY (unsubscription_id) REFERENCES public.unsubscriptions(id);
+    ADD CONSTRAINT fk_rails_d0fd6f84ac
+    FOREIGN KEY (unsubscription_id)
+    REFERENCES public.unsubscriptions(id);
+
+
+
 
 
 
@@ -519,12 +774,27 @@ ORDER by kind ASC;
 
 
 
+
+
+
+
+
 CREATE VIEW unsubscriptions_reason_specific
 AS SELECT reason_specific
 FROM unsubscriptions
 GROUP BY reason_specific
 ORDER by reason_specific ASC;
 
+
+
+
+
+
+
+
+--
+-- LIST OF USERS EMAILS
+--
 
 
 
@@ -536,6 +806,11 @@ ORDER BY email ASC;
 
 
 
+
+
+--
+-- LIST OF USERS ZIPCODES
+--
 
 
 CREATE VIEW users_zipcodes
@@ -628,12 +903,116 @@ ORDER BY lastname ASC;
 
 
 --
+-- LIST ALL USERS AND THEIR MODIFICATIONS
+--
+
+
+
+CREATE VIEW users_modifications
+AS SELECT *
+FROM users
+INNER JOIN modifications
+ON users.id = modifications.user_id;
+
+
+
+
+
+
+
+
+
+--
+-- List  chosen Users choices
+--
+
+CREATE VIEW user_choices
+AS SELECT UN.kind
+FROM unsubscriptions UN
+INNER JOIN choices CH
+ON UN.user_id = CH.user_id
+INNER JOIN users US
+ON UN.user_id = US.id
+GROUP BY UN.kind
+ORDER BY UN.kind ASC;
+
+
+
+
+
+
+
+
+
+
+--
+-- LIST ALL REQUESTS ORDERED ALPHABETICALLY
+--
+
+
+CREATE VIEW requests_index
+AS SELECT title
+FROM requests
+GROUP BY title
+ORDER BY title ASC;
+
+
+
+
+
+
+
+--
+-- List Emails and secrets from tokens
+--
+
+CREATE VIEW secrets_and_emails
+AS SELECT secret,
+email
+FROM tokens
+GROUP BY secret
+ORDER BY secret DESC;
+
+
+
+
+
+
+
+
+
+--
+-- Sorts users by creation date
+--
+
+
+
+CREATE VIEW most_recent_users
+AS SELECT name,
+surname,
+email,
+phone,
+address,
+city,
+zipcode,
+created_at
+FROM users
+GROUP BY created_at
+ORDER BY created_at ASC;
+
+
+
+
+
+
+--
 -- PostgreSQL database dump complete
 --
 
 SET search_path TO "$user", public;
 
-INSERT INTO "schema_migrations" (version) VALUES
+INSERT INTO "schema_migrations" (version)
+VALUES
 ('20181114151531'),
 ('20181114151532'),
 ('20181114154557'),
@@ -649,6 +1028,9 @@ INSERT INTO "schema_migrations" (version) VALUES
 ('20181218160912'),
 ('20181218201740'),
 ('20181218210826'),
+('20181114151532'),
+('20181114154557'),
+('20181214155842'),
 ('20181224142248'),
 ('20190102141018'),
 ('20190104143549'),
