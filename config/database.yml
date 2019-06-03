@@ -6,8 +6,8 @@
 #
 
 development:
-  username: rails_user
-  password: P1nkfloyd
+  username: <%= ENV['DB_USER'] %>
+  password: <% ENV['DB_PASSWORD'] %>
   adapter: postgresql
   database: my_database_development
   pool: 5
@@ -23,8 +23,8 @@ test:
   timeout: 5000
 
 production:
-  username: rails_user
-  password: P1nkfloyd
+  username: <%= ENV['DB_USER'] %>
+  password: <% ENV['DB_PASSWORD'] %>
   adapter: postgresql
   database: my_database_production
   pool: 5
