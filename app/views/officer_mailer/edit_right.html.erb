@@ -5,22 +5,75 @@
     </p>
     <p>
       Vous avez reçu une nouvelle demande de rectification des données consultable à cette adresse:
-      <%= url_for @user %>
+      <%= link_to("Ce lien", user_url(@user)) %>
     </p>
 
     <p>Voici les informations fournies par l'utilisateur:</p>
 
-
-    <p>Prénom: <%= @user.name %> | Nom: <%= @user.surname %></p>
-    <p>Courriel: <%= @user.email %></p>
-    <p>Adresse: <%= @user.address %></p>
-    <p>Ville: <%= @user.city %> | <%= @user.zipcode %></p>
+    <p>Prénom: <b><%= @user.name %></b> | Nom: <b><%= @user.surname %></b></p>
+    <p>Courriel: <b><%= @user.email %></b></p>
+    <% if !@user.phone.blank? %>
+    <p>
+      Téléphone: <b><%= @user.phone %></b>
+    </p>
+    <% end %>
+    <% if !@user.address.blank? %>
+      <p>
+        Adresse: <b><%= @user.address %></b>
+      </p>
+    <% end %>
+    <% if !@user.city.blank? || !@user.zipcode.blank? %>
+      <p>
+        <% if @user.city %>
+        Ville: <b><%= @user.city %></b>  |
+        <%end%>
+        <% if !@user.zipcode.blank? %>
+        Code postal: <b><%= @user.zipcode %></b>
+        <%end%>
+      </p>
+    <% end %>
     <hr>
 
     <p>Voici les données à modifier:</p>
 <% new = @user.modification %>
-    <p>Prénom: <%= new.name %> | Nom: <%= new.surname %></p>
-    <p>Courriel: <%= new.email %></p>
-    <p>Adresse: <%= new.address %></p>
-    <p>Ville: <%= new.city %> | <%= new.zipcode %></p>
+    <% if new.name != @user.name || new.surname != @user.surname %>
+      <p>
+        <% if new.name != @user.name %>
+        Prénom: <b><%= new.name %></b> |
+        <% end %>
+        <% if new.surname != @user.surname %>
+         Nom: <b><%= new.surname %></b>
+       </p>
+       <% end %>
+    <% end %>
+    <% if new.phone != @user.phone %>
+    <p>
+      Téléphone: <b><%= new.phone %></b>
+    </p>
+    <% end %>
+
+      <% if new.email != @user.email %>
+      <p>
+        Courriel: <b><%= new.email %></b>
+      </p>
+      <% end %>
+
+      <% if new.address != @user.address %>
+      <p>
+        Adresse: <b><%= new.address %></b>
+        </p>
+        <% end %>
+
+
+      <% if new.city != @user.city || new.zipcode != @user.zipcode %>
+      <p>
+        <% if new.city != @user.city %>
+        Ville: <b><%= new.city %></b> |
+        <% end %>
+        <% if new.zipcode != @user.zipcode %>
+        </p>
+        <% end %>
+      <% end %>
+      Code Postal: <b><%= new.zipcode %></b>
+
     <hr>
