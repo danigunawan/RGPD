@@ -17,3 +17,6 @@
 //= require turbolinks
 //= require bootstrap
 //= require_tree .
+$(document).ready( () => {
+  $("#captcha").show();
+});

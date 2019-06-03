@@ -98,7 +98,9 @@ $sidebar-width: 200px;
 
 
 /* App styling */
-
+.container-fluid {
+	height: 600px !important;
+}
 
 body {
 }
@@ -121,6 +123,7 @@ body {
 	padding: 0px;
 	padding-right: -1px;
 	border-radius: 5px;
+	display: none;
 
 }
 
