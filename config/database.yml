@@ -25,7 +25,7 @@ test:
 
 production:
   username: <%= ENV['DB_USER'] %>
-  password: <% ENV['DB_PASSWORD'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
   adapter: postgresql
   database: my_database_production
   username: ENV['DB_USER']
