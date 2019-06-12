@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_one :modification, dependent: :destroy
 
   before_save :assign_unsubs, :capitalize_name
+  after_save :assign_url
   before_destroy :destroy_unsub
 
 
@@ -18,6 +19,10 @@ class User < ApplicationRecord
 
   # All methods under this keyword are private
 private
+
+def assign_url
+  self.infoUrl= self.request.infoUrl
+end
 
   def assign_unsubs
     Unsubscription.all.each do |unsub|

@@ -1,0 +1,34 @@
+<% years = User.select("created_at").map{ |item| item.created_at.year }.uniq %>
+<div class="informative">
+  <table border="1">
+    <caption>Ensemble des requêtes par année</caption>
+    <tr>
+      <th scope = "col">Année</th>
+      <% Request.all.each do |request| %>
+      <th scope="col"><%=request.title%></th>
+      <% end %>
+      <th scope="col">Total</th>
+    </tr>
+    <tbody>
+      <% years.each do |year| %>
+      <tr>
+        <th scope="row"><%= year %></th>
+        <% Request.all.each do |request| %>
+          <td><%= request.users.where('extract(year from created_at) = ?', year).count %></td>
+        <% end %>
+        <td><%= User.where('extract(year from created_at) = ?', year).count %></td>
+        </tr>
+
+      <% end %>
+      <tr>
+      <th scope="row">Total</th>
+
+      <% Request.all.each do | request | %>
+        <% @total = request.users.count + @total %>
+        <td><%= request.users.count%></td>
+      <% end %>
+      <td><%= @total %></td>
+    </tr>
+    </tbody>
+  </table>
+</div>

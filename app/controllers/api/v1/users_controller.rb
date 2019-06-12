@@ -2,7 +2,7 @@ module Api
   module V1
     class UsersController < ApiController
 
-      before_action :set_user, only: [:archive]
+      before_action :set_user, only: [:archive, :destroy]
       respond_to :json
       # the api requests do not need login
       #skip_before_action :login_required
@@ -27,10 +27,16 @@ module Api
         end
       end
 
+      def destroy
+        puts "This is @user.id: #{@user.id}"
+        @user.destroy
+      end
+
       private
 
       def set_user
         @user = User.find(params['id'])
+        puts "This is params['id']: #{params['id']}"
       end
     end
   end
