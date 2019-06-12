@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_01_12_161534) do
+ActiveRecord::Schema.define(version: 2019_06_12_092559) do
 
   create_table "choices", force: :cascade do |t|
     t.integer "user_id"
@@ -52,6 +52,7 @@ ActiveRecord::Schema.define(version: 2019_01_12_161534) do
   create_table "requests", force: :cascade do |t|
     t.string "title"
     t.boolean "selected"
+    t.string "infoUrl"
   end
 
   create_table "tokens", force: :cascade do |t|
