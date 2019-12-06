@@ -30,7 +30,7 @@ gem 'jquery-rails'
 # Use postgres as the database for Active Record
 gem 'pg'
 # Use Puma as the app server
-gem 'puma', '~> 3.11'
+gem 'puma', '~> 3.12'
 # Use SCSS for stylesheets
 gem 'sassc', '~> 2.0'
 # Use Uglifier as compressor for JavaScript assets
